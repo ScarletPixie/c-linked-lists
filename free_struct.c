@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "link_list.h"
+#include "linked_lists.h"
 
 t_list	clear_list(t_list *head)
 {
