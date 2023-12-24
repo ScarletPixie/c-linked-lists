@@ -3,13 +3,13 @@ This repository contains useful linked lists prototypes and functions.
 <br><br><br><br>
 
 # Initialization ([new_struct.c](new_struct.c))
-## t_list *new_node()
+## t_list \*new_node()
 Returns a pointer to an initialized t_list struct. Returns NULL on failure.
-## t_dblist *new_node2()
+## t_dblist \*new_node2()
 Returns a pointer to an initialized t_dblist struct. Returns NULL on failure.
-## t_stack *init_stack()
+## t_stack \*init_stack()
 Returns a pointer to an initialized t_stack struct. Returns NULL on failure.
-## t_stack2	*init_stack2()
+## t_stack2	\*init_stack2()
 Returns a pointer to an initialized t_stack2 struct. Returns NULL on failure.
 <br><br><br><br>
 
