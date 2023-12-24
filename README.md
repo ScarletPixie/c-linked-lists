@@ -1,4 +1,4 @@
-# c-linked-lists
+# C-LINKED-LISTS
 This repository contains useful linked lists prototypes and functions.
 <br><br><br><br>
 
