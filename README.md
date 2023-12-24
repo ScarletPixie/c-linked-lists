@@ -1,6 +1,6 @@
 # c-linked-lists
 This repository contains useful linked lists prototypes and functions.
-
+<br>
 # Initialization
 ## t_list *new_node()
 Returns a pointer to an initialized t_list struct. Returns NULL on failure.
@@ -10,7 +10,7 @@ Returns a pointer to an initialized t_dblist struct. Returns NULL on failure.
 Returns a pointer to an initialized t_stack struct. Returns NULL on failure.
 ## t_stack2	*init_stack2()
 Returns a pointer to an initialized t_stack2 struct. Returns NULL on failure.
-
+<br>
 # Free memory:
 ## t_list clear_list(t_list *head)
 Receives a t_list pointer to the start of the list and clears all nodes present in the list, returns NULL.
