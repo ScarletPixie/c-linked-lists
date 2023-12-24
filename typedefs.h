@@ -13,8 +13,6 @@
 #ifndef TYPEDEFS_H
 # define TYPEDEFS_H
 
-#include <stdlib.h>
-
 typedef struct s_list
 {
 	void			*data;
