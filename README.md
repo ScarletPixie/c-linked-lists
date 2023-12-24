@@ -1,7 +1,7 @@
 # c-linked-lists
 This repository contains useful linked lists prototypes and functions.
 <br><br><br><br>
-# Initialization
+# Initialization ([new_struct.c](new_struct.c))
 ## t_list *new_node()
 Returns a pointer to an initialized t_list struct. Returns NULL on failure.
 ## t_dblist *new_node2()
