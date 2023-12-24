@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 10:35:25 by paulhenr          #+#    #+#             */
-/*   Updated: 2023/12/24 11:28:24 by paulhenr         ###   ########.fr       */
+/*   Updated: 2023/12/24 12:07:02 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 #include "typedefs.h"
 
 // free_struct.c
-t_list		clear_list(t_list *head);
-t_dblist	clear_list2(t_dblist *head);
-t_stack		clear_stack(t_stack *stack);
-t_stack2	clear_stack2(t_stack2 *stack);
+t_list		*clear_list(t_list *head);
+t_dblist	*clear_list2(t_dblist *head);
+t_stack		*clear_stack(t_stack *stack);
+t_stack2	*clear_stack2(t_stack2 *stack);
 
 // new_struct.c
 t_list		new_node();

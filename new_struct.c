@@ -6,13 +6,13 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 11:29:22 by paulhenr          #+#    #+#             */
-/*   Updated: 2023/12/24 11:58:36 by paulhenr         ###   ########.fr       */
+/*   Updated: 2023/12/24 12:07:17 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "link_list.h"
 
-t_list		new_node()
+t_list		*new_node()
 {
 	t_list	*node;
 
@@ -23,7 +23,7 @@ t_list		new_node()
 	node->next = NULL;
 }
 
-t_dblist	new_node2()
+t_dblist	*new_node2()
 {
 	t_dblist	*node;
 
@@ -36,7 +36,7 @@ t_dblist	new_node2()
 	return (node);
 }
 
-t_stack		init_stack()
+t_stack		*init_stack()
 {
 	t_stack	*stk;
 
@@ -49,7 +49,7 @@ t_stack		init_stack()
 	return (stk);
 }
 
-t_stack2	init_stack2()
+t_stack2	*init_stack2()
 {
 	t_stack2	*stk;
 
