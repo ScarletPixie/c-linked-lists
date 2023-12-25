@@ -81,8 +81,58 @@ t_list      *lst_pop(t_list **head, size_t index)
 	}
 	return (NULL);
 }
-t_list      *lst_slice(t_list *head, size_t start, size_t end)
+t_list	*lst_slice(t_list **head, size_t start, size_t end)
 {
-	
+	t_list	*curr;
+	t_list	*next;
+	t_list	*subl;
+	size_t	i;
+
+	i = 0;
+	curr = *head;
+	while (curr)
+	{
+		if (i == start)
+		{
+			subl = curr;
+			next = get_node(curr, end);
+			curr = NULL;
+			if (next && next->next)
+				curr = (next->next)->next;
+			next->next = NULL;
+			if (start == 0)
+				*head = curr;
+			return (subl);
+		}
+		curr = curr->next;
+		i++;
+	}
+	return (NULL);
 }
-t_list      *lst_extend(t_list *head, size_t index);
+
+t_list      *lst_extend(t_list **head, size_t index, t_list	*list)
+{
+	t_list	*curr;
+	t_list	*next;
+	size_t	i;
+
+	i = 0;
+	curr = *head;
+	if (!list)
+		return (*head);
+	while (curr)
+	{
+		next = curr->next;
+		if (i == index)
+		{
+			curr->next = list;
+			(last_node(list))->next = next;
+			if (index == 0)
+				*head = list;
+			return (*head);
+		}
+		curr = curr->next;
+		i++;
+	}
+	return (head);
+}

@@ -6,6 +6,8 @@ void	*ft_memdup(void *data, size_t data_size)
 	unsigned char	*dup;
 	unsigned char	*tpd;
 
+	if (!data || !data_size)
+		return (NULL);
 	dup = malloc(data_size);
 	if (!dup)
 		return (NULL);
@@ -17,4 +19,30 @@ void	*ft_memdup(void *data, size_t data_size)
 		i++;
 	}
 	return (dup);
+}
+
+t_list	*get_node(t_list *head, size_t index)
+{
+	t_list	*curr;
+	size_t	i;
+
+	i = 0
+	curr = head;
+	while (curr)
+	{
+		if (i == index)
+			return (curr);
+		i++;
+		curr = curr->next:
+	}
+	return (curr);
+}
+
+t_list	*last_node(t_list *head)
+{
+	if (!head)
+		return (NULL);
+	while(head->next)
+		head = head->next;
+	return (curr);
 }
