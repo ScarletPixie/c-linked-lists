@@ -64,20 +64,20 @@ t_list      *lst_pop(t_list **head, size_t index)
 		return (NULL);
 	curr = *head;
 	i = 0;
-	if (index == 0)
-		*head = (*head)->next;
-	while (curr->next)
+	while (curr)
 	{
-		next = (curr->next)->next;;
-		if ((i + 1) == index)
+		next = curr->next;;
+		if (i == index)
 		{
-			pop = ft_memdup(curr->next, sizeof(t_list));
-			curr->next = next;
+			if (index == 0)
+				*head = (*head)->next;
+			pop = curr;
+			curr = next;
 			pop->next = NULL;
 			return (pop);
 		}
 		i++;
-		curr = curr-next;
+		curr = curr->next;
 	}
 	return (NULL);
 }
