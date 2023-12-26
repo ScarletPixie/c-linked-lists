@@ -46,3 +46,12 @@ t_list	*last_node(t_list *head)
 		head = head->next;
 	return (curr);
 }
+
+void	ft_swap(void **ptr1, void **ptr2)
+{
+	void *tmp;
+
+	tmp = *ptr1;
+	*ptr1 = *ptr2;
+	*ptr2 = tmp;
+}

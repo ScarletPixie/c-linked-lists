@@ -32,17 +32,16 @@ t_stack		init_stack();
 t_stack2	init_stack2();
 
 // lnk_list.c
-t_list		*lst_insert(t_list *head, t_list *node, size_t index);
-t_list		*lst_delete(t_list *head, size_t index);
-t_list		*lst_pop(t_list *head, size_t index);
-t_list		*lst_slice(t_list *head, size_t start, size_t end);
-t_list		*lst_extend(t_list *head, size_t index);
+t_list		*lst_insert(t_list **head, t_list *node, size_t index);
+t_list		*lst_delete(t_list **head, size_t index);
+t_list		*lst_pop(t_list **head, size_t index);
+t_list		*lst_slice(t_list **head, size_t start, size_t end);
+t_list		*lst_extend(t_list **head, size_t index);
 
 // lnk_list_extra.c
-t_list		*lst_append(t_list *head, t_list *node);
+t_list		*lst_append(t_list **head, t_list *node);
 size_t		*lst_len(t_list *head);
-t_list		*lst_tail(t_list *head);
-t_list		*lst_sort(t_list *head, int (*cmp(void *data1, void *data2)));
-t_list		*lst_rev(t_list *head);
+t_list		*lst_sort(t_list **head, int (*cmp(void *data1, void *data2)));
+t_list		*lst_rev(t_list **head);
 
 #endif
