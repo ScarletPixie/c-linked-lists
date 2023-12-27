@@ -30,13 +30,13 @@ t_list2	*new_node2()
 	node = malloc(sizeof(t_list2));
 	if (!node)
 		return (NULL);
-	t_dblist->data = NULL;
-	t_dblist->next = NULL;
-	t_dblist->prev = NULL;
+	t_list2->data = NULL;
+	t_list2->next = NULL;
+	t_list2->prev = NULL;
 	return (node);
 }
 
-t_stack		*init_stack()
+t_stack		*new_stack()
 {
 	t_stack	*stk;
 
@@ -49,7 +49,7 @@ t_stack		*init_stack()
 	return (stk);
 }
 
-t_stack2	*init_stack2()
+t_stack2	*new_stack2()
 {
 	t_stack2	*stk;
 

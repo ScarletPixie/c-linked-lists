@@ -18,7 +18,7 @@ void	*ft_memdup(void *data, size_t data_size)
 		dup[i] = tpd[i];
 		i++;
 	}
-	return (dup);
+	return ((void *)dup);
 }
 
 t_list	*get_node(t_list *head, size_t index)
@@ -26,14 +26,14 @@ t_list	*get_node(t_list *head, size_t index)
 	t_list	*curr;
 	size_t	i;
 
-	i = 0
+	i = 0;
 	curr = head;
 	while (curr)
 	{
 		if (i == index)
 			return (curr);
 		i++;
-		curr = curr->next:
+		curr = curr->next;
 	}
 	return (curr);
 }
@@ -44,7 +44,7 @@ t_list	*last_node(t_list *head)
 		return (NULL);
 	while(head->next)
 		head = head->next;
-	return (curr);
+	return (head);
 }
 
 void	ft_swap(void **ptr1, void **ptr2)

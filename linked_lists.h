@@ -26,10 +26,10 @@ void		clear_stack(t_stack *stack);
 void		clear_stack2(t_stack2 *stack);
 
 // new_struct.c
-t_list		new_node();
-t_list2		new_node2();
-t_stack		init_stack();
-t_stack2	init_stack2();
+t_list		*new_node();
+t_list2		*new_node2();
+t_stack		*new_stack();
+t_stack2	*new_stack2();
 
 // lnk_list.c
 t_list		*lst_insert(t_list **head, t_list *node, size_t index);
