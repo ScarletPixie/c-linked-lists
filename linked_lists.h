@@ -21,13 +21,13 @@ void		*ft_memdup(void *data, size_t data_size);
 
 // free_struct.c
 t_list		*clear_list(t_list *head);
-t_dblist	*clear_list2(t_dblist *head);
-t_stack		*clear_stack(t_stack *stack);
-t_stack2	*clear_stack2(t_stack2 *stack);
+t_list2		*clear_list2(t_list2 *head);
+void		clear_stack(t_stack *stack);
+void		clear_stack2(t_stack2 *stack);
 
 // new_struct.c
 t_list		new_node();
-t_dblist	new_node2();
+t_list2		new_node2();
 t_stack		init_stack();
 t_stack2	init_stack2();
 

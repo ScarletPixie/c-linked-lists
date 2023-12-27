@@ -19,12 +19,12 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-typedef struct s_dblist
+typedef struct s_list2
 {
 	void			*data;
-	struct s_dblist	*next;
-	struct s_dblist	*prev;
-}					t_dblist;
+	struct s_list2	*next;
+	struct s_list2	*prev;
+}					t_list2;
 
 typedef struct s_stack
 {
@@ -36,8 +36,8 @@ typedef struct s_stack
 typedef struct s_stack2
 {
 	size_t			size;
-	struct s_dblist	*top;
-	struct s_dblist	*bottom;
+	struct s_list2	*top;
+	struct s_list2	*bottom;
 }					t_stack2;
 
 #endif

@@ -23,11 +23,11 @@ t_list		*new_node()
 	node->next = NULL;
 }
 
-t_dblist	*new_node2()
+t_list2	*new_node2()
 {
-	t_dblist	*node;
+	t_list2	*node;
 
-	node = malloc(sizeof(t_dblist));
+	node = malloc(sizeof(t_list2));
 	if (!node)
 		return (NULL);
 	t_dblist->data = NULL;
