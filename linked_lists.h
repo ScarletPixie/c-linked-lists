@@ -20,10 +20,10 @@
 void		*ft_memdup(void *data, size_t data_size);
 
 // free_struct.c
-t_list		*clear_list(t_list *head);
-t_list2		*clear_list2(t_list2 *head);
-void		clear_stack(t_stack *stack);
-void		clear_stack2(t_stack2 *stack);
+void		clear_list(t_list **head);
+void		clear_list2(t_list2 **head);
+void		empty_stack(t_stack *stack);
+void		empty_stack2(t_stack2 *stack);
 
 // new_struct.c
 t_list		*new_node();
@@ -32,16 +32,21 @@ t_stack		*new_stack();
 t_stack2	*new_stack2();
 
 // lnk_list.c
-t_list		*lst_insert(t_list **head, t_list *node, size_t index);
-t_list		*lst_delete(t_list **head, size_t index);
+void		lst_insert(t_list **head, t_list *node, size_t index);
+void		lst_delete(t_list **head, size_t index);
 t_list		*lst_pop(t_list **head, size_t index);
 t_list		*lst_slice(t_list **head, size_t start, size_t end);
-t_list		*lst_extend(t_list **head, size_t index);
+void		lst_extend(t_list **head, size_t index, t_list *list);
 
 // lnk_list_extra.c
-t_list		*lst_append(t_list **head, t_list *node);
-size_t		*lst_len(t_list *head);
-t_list		*lst_sort(t_list **head, int (*cmp(void *data1, void *data2)));
-t_list		*lst_rev(t_list **head);
+void		lst_append(t_list **head, t_list *node);
+size_t		lst_len(t_list *head);
+void		lst_sort(t_list *head, int (*cmp)(void *data1, void *data2));
+void		lst_rev(t_list **head);
+
+// helpers.c
+t_list		*get_node(t_list *head, size_t index);
+t_list		*last_node(t_list *head);
+void    	ft_swap(void **ptr1, void **ptr2);
 
 #endif

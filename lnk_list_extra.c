@@ -1,20 +1,19 @@
 #include "linked_lists.h"
 
-t_list      *lst_append(t_list **head, t_list *node)
+void	lst_append(t_list **head, t_list *node)
 {
 	t_list	*last;
 
 	if (!*head)
 	{
-		*head = node
-		return (*head);
+		*head = node;
+		return ;
 	}
 	last = last_node(*head);
 	last->next = node;
-	return (*head);
 }
 
-size_t      *lst_len(t_list *head)
+size_t	lst_len(t_list *head)
 {
 	size_t	i;
 
@@ -27,7 +26,7 @@ size_t      *lst_len(t_list *head)
 	return (i);
 }
 
-void	*lst_sort(t_list *head, int (*cmp(void *data1, void *data2)));
+void	lst_sort(t_list *head, int (*cmp)(void *data1, void *data2))
 {
 	t_list	*inner;
 	t_list	*outer;
@@ -48,13 +47,15 @@ void	*lst_sort(t_list *head, int (*cmp(void *data1, void *data2)));
 	}
 }
 
-t_list      *lst_rev(t_list **head)
+void	lst_rev(t_list **head)
 {
 	t_list	*tmp;
+	t_list	*og_head;
 
 	og_head = *head;
 	while (last_node(*head) != og_head)
 	{
-		insert(head, 0, last_node(*head));		
+		tmp = lst_pop(head, lst_len(*head) -2);
+		lst_insert(head, tmp, 0);				
 	}
 }

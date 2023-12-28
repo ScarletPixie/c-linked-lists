@@ -1,6 +1,6 @@
 #include "linked_lists.h"
 
-t_list      *lst_insert(t_list **head, t_list *node, size_t index)
+void	lst_insert(t_list **head, t_list *node, size_t index)
 {
 	t_list	*curr;
 	size_t	i;
@@ -8,7 +8,7 @@ t_list      *lst_insert(t_list **head, t_list *node, size_t index)
 	if (!*head)
 	{
 		*head = node;
-		return (*head);
+		return ;
 	}
 	curr = *head;
 	i = 0;
@@ -18,7 +18,7 @@ t_list      *lst_insert(t_list **head, t_list *node, size_t index)
 		{
 			node->next = curr->next;
 			if (index == 0)
-				*head = node
+				*head = node;
 			else
 				curr->next = node;
 			break ;
@@ -26,17 +26,16 @@ t_list      *lst_insert(t_list **head, t_list *node, size_t index)
 		curr = curr->next;
 		i++;
 	}
-	return (*head);
 }
 
-t_list      *lst_delete(t_list **head, size_t index);
+void	lst_delete(t_list **head, size_t index)
 {
 	t_list	*curr;
 	t_list	*next;
 	size_t	i;
 
 	if (!*head)
-		return (NULL);
+		return ;
 	curr = *head;
 	i = 0;
 	while (curr)
@@ -53,7 +52,6 @@ t_list      *lst_delete(t_list **head, size_t index);
 		curr = curr->next;
 		i++;
 	}
-	return (*head)
 }
 
 t_list      *lst_pop(t_list **head, size_t index)
@@ -84,6 +82,7 @@ t_list      *lst_pop(t_list **head, size_t index)
 	}
 	return (NULL);
 }
+
 t_list	*lst_slice(t_list **head, size_t start, size_t end)
 {
 	t_list	*curr;
@@ -113,7 +112,7 @@ t_list	*lst_slice(t_list **head, size_t start, size_t end)
 	return (NULL);
 }
 
-t_list      *lst_extend(t_list **head, size_t index, t_list	*list)
+void      lst_extend(t_list **head, size_t index, t_list *list)
 {
 	t_list	*curr;
 	t_list	*next;
@@ -122,7 +121,7 @@ t_list      *lst_extend(t_list **head, size_t index, t_list	*list)
 	i = 0;
 	curr = *head;
 	if (!list)
-		return (*head);
+		return ;
 	while (curr)
 	{
 		next = curr->next;
@@ -132,10 +131,9 @@ t_list      *lst_extend(t_list **head, size_t index, t_list	*list)
 			(last_node(list))->next = next;
 			if (index == 0)
 				*head = list;
-			return (*head);
+			return ;
 		}
 		curr = curr->next;
 		i++;
 	}
-	return (head);
 }

@@ -12,48 +12,46 @@
 
 #include "linked_lists.h"
 
-t_list	*clear_list(t_list *head)
+void	clear_list(t_list **head)
 {
 	t_list	*tmp;
 
-	if (!head)
-		return (NULL);
-	tmp = head;
+	if (!*head)
+		return ;
+	tmp = *head;
 	while (tmp)
 	{
-		tmp = head->next;
-		free(head);
-		head = tmp;
+		tmp = (*head)->next;
+		free(*head);
+		*head = tmp;
 	}
-	return (head);
 }
 
-t_list2	*clear_list2(t_list2 *head)
+void	clear_list2(t_list2 **head)
 {
 	t_list2	*tmp;
 
-	if (!head)
-		return (NULL);
-	tmp = head;
+	if (!*head)
+		return ;
+	tmp = *head;
 	while (tmp)
 	{
-		tmp = head->next;
-		free(head);
-		head = tmp;
+		tmp = (*head)->next;
+		free(*head);
+		*head = tmp;
 	}
-	return (head);
 }
 
-void	clear_stack(t_stack *stack)
+void	empty_stack(t_stack *stack)
 {
 	stack->size = 0;
-	stack->top = clear_list(stack->top);
+	clear_list(&stack->top);
 	stack->bottom = NULL;
 }
 
-void	clear_stack2(t_stack2 *stack)
+void	empty_stack2(t_stack2 *stack)
 {
 	stack->size = 0;
-	stack->top = clear_list2(stack->top);
+	clear_list2(&stack->top);
 	stack->bottom = NULL;
 }

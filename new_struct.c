@@ -12,7 +12,7 @@
 
 #include "linked_lists.h"
 
-t_list		*new_node()
+t_list		*new_node(void)
 {
 	t_list	*node;
 
@@ -21,22 +21,23 @@ t_list		*new_node()
 		return (NULL);
 	node->data = NULL;
 	node->next = NULL;
+	return (node);
 }
 
-t_list2	*new_node2()
+t_list2	*new_node2(void)
 {
 	t_list2	*node;
 
 	node = malloc(sizeof(t_list2));
 	if (!node)
 		return (NULL);
-	t_list2->data = NULL;
-	t_list2->next = NULL;
-	t_list2->prev = NULL;
+	node->data = NULL;
+	node->next = NULL;
+	node->prev = NULL;
 	return (node);
 }
 
-t_stack		*new_stack()
+t_stack		*new_stack(void)
 {
 	t_stack	*stk;
 
@@ -49,7 +50,7 @@ t_stack		*new_stack()
 	return (stk);
 }
 
-t_stack2	*new_stack2()
+t_stack2	*new_stack2(void)
 {
 	t_stack2	*stk;
 
