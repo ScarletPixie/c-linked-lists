@@ -34,26 +34,29 @@ void	lst_delete(t_list **head, size_t index)
 	t_list	*next;
 	size_t	i;
 
-	if (!*head)
-		return ;
-	curr = *head;
 	i = 0;
-	while (curr)
+	curr = *head;
+	if (*head && index == 0)
 	{
-		next = curr->next;
-		if (i == index)
+		*head = curr->next;
+		free(curr);
+		return ;
+	}
+	while (curr && curr->next)
+	{
+		next = (curr->next)->next;
+		if ((i + 1) == index)
 		{
-			if (index == 0)
-				*head = next;
-			free(curr);
-			curr = next;
-			break ;
+			free(curr->next);
+			curr->next = next;
+			return ;
 		}
 		curr = curr->next;
 		i++;
 	}
 }
 
+static t_list	*cut_node(t_list *node);
 t_list      *lst_pop(t_list **head, size_t index)
 {
 	t_list	*curr;
@@ -61,26 +64,34 @@ t_list      *lst_pop(t_list **head, size_t index)
 	t_list	*pop;
 	size_t	i;
 
-	if (!head)
-		return (NULL);
 	curr = *head;
-	i = 0;
-	while (curr)
+	pop = NULL;
+	if (*head && index == 0)
 	{
-		next = curr->next;;
-		if (i == index)
+		pop = cut_node(*head);
+		*head = (*head)->next;
+	}
+	i = 0;
+	while (i < index && curr && curr->next)
+	{
+		next = (curr->next)->next;
+		if ((i + 1) == index)
 		{
-			if (index == 0)
-				*head = (*head)->next;
-			pop = curr;
-			curr = next;
-			pop->next = NULL;
-			return (pop);
+			pop = cut_node(curr->next);
+			curr->next = next;
 		}
 		i++;
 		curr = curr->next;
 	}
-	return (NULL);
+	return (pop);
+}
+
+static t_list	*cut_node(t_list *node)
+{
+	if (!node)
+		return (NULL);
+	node->next = NULL;
+	return (node);
 }
 
 t_list	*lst_slice(t_list **head, size_t start, size_t end)
@@ -110,30 +121,4 @@ t_list	*lst_slice(t_list **head, size_t start, size_t end)
 		i++;
 	}
 	return (NULL);
-}
-
-void      lst_extend(t_list **head, size_t index, t_list *list)
-{
-	t_list	*curr;
-	t_list	*next;
-	size_t	i;
-
-	i = 0;
-	curr = *head;
-	if (!list)
-		return ;
-	while (curr)
-	{
-		next = curr->next;
-		if (i == index)
-		{
-			curr->next = list;
-			(last_node(list))->next = next;
-			if (index == 0)
-				*head = list;
-			return ;
-		}
-		curr = curr->next;
-		i++;
-	}
 }

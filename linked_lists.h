@@ -36,10 +36,10 @@ void		lst_insert(t_list **head, t_list *node, size_t index);
 void		lst_delete(t_list **head, size_t index);
 t_list		*lst_pop(t_list **head, size_t index);
 t_list		*lst_slice(t_list **head, size_t start, size_t end);
-void		lst_extend(t_list **head, size_t index, t_list *list);
 
 // lnk_list_extra.c
 void		lst_append(t_list **head, t_list *node);
+void		lst_extend(t_list **head, size_t index, t_list *list);
 size_t		lst_len(t_list *head);
 void		lst_sort(t_list *head, int (*cmp)(void *data1, void *data2));
 void		lst_rev(t_list **head);

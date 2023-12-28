@@ -55,7 +55,17 @@ void	lst_rev(t_list **head)
 	og_head = *head;
 	while (last_node(*head) != og_head)
 	{
-		tmp = lst_pop(head, lst_len(*head) -2);
+		tmp = lst_pop(head, lst_len(*head) -1);
 		lst_insert(head, tmp, 0);				
 	}
 }
+
+void      lst_extend(t_list **head, size_t index, t_list *list)                         {
+    t_list  *curr;
+    t_list  *next;
+    size_t  i;                                                                          
+    i = 0;                                                                                  curr = *head;                                                                           if (!list)                                                                                  return ;                                                                            while (curr)
+    {
+        next = curr->next;                                                                      if (i == index)                                                                         {                                                                                           curr->next = list;                                                                      (last_node(list))->next = next;                                                         if (index == 0)                                                                             *head = list;
+            return ;                                                                            }                                                                                       curr = curr->next;                                                                      i++;
+    }                                                                                   }
