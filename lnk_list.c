@@ -16,7 +16,7 @@ void	lst_insert(t_list **head, t_list *node, size_t index)
 	{
 		if (i == index)
 		{
-			node->next = curr->next;
+			node->next = curr;
 			if (index == 0)
 				*head = node;
 			else
