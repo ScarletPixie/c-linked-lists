@@ -4,6 +4,8 @@ void	lst_append(t_list **head, t_list *node)
 {
 	t_list	*last;
 
+	if (!node)
+		return ;
 	if (!*head)
 	{
 		*head = node;
@@ -31,6 +33,8 @@ void	lst_sort(t_list *head, int (*cmp)(void *data1, void *data2))
 	t_list	*inner;
 	t_list	*outer;
 
+	if (!cmp)
+		return ;
 	inner = head;
 	outer = head;
 	while (outer)
@@ -51,12 +55,20 @@ void	lst_rev(t_list **head)
 {
 	t_list	*tmp;
 	t_list	*og_head;
+	size_t	len;
+	size_t	i;
 
+	i = 0;
+	len = lst_len(*head);
+	if (!len)
+		return ;
 	og_head = *head;
-	while (last_node(*head) != og_head)
+	*head = NULL;
+	while (i < len)
 	{
-		tmp = lst_pop(head, lst_len(*head) -1);
-		lst_insert(head, tmp, 0);				
+		tmp = lst_pop(&og_head, lst_len(og_head) - 1);
+		lst_append(head, tmp);
+		i++;
 	}
 }
 

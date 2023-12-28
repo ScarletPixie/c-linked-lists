@@ -5,23 +5,22 @@ void	lst_insert(t_list **head, t_list *node, size_t index)
 	t_list	*curr;
 	size_t	i;
 
-	if (!*head)
+	i = 0;
+	if (!node)
+		return ;
+	curr = *head;
+	if (!*head || index == 0)
 	{
+		node->next = *head;
 		*head = node;
 		return ;
 	}
-	curr = *head;
-	i = 0;
-	while (curr)
+	while (i <= index && curr)
 	{
 		if (i == index)
 		{
-			node->next = curr;
-			if (index == 0)
-				*head = node;
-			else
-				curr->next = node;
-			break ;
+			node->next = curr->next;
+			curr->next = node;
 		}
 		curr = curr->next;
 		i++;

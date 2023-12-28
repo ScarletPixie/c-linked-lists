@@ -29,9 +29,9 @@ int	main(void)
 		i++;
 	}
 	print_list(list);
-	lst_sort(list, &cmp);
-	print_list(list);
-	lst_sort(list, &cmp);
+	printf("\n");
+	lst_rev(&list);
+//	printf("len: %zu\n", lst_len(list));
 	print_list(list);
 	clear_list(&list);
 }
