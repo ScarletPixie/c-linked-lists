@@ -39,7 +39,7 @@ void	clear_list2(t_list2 **head, int free_data)
 	while (tmp)
 	{
 		tmp = (*head)->next;
-		if (free_data = 1)
+		if (free_data == 1)
 			free((*head)->data);
 		free(*head);
 		*head = tmp;
