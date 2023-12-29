@@ -22,7 +22,7 @@ int	main(void)
 	{
 		node = new_node();
 		if (!node)
-			clear_list(&list);
+			clear_list(&list, 1);
 		node->data = ft_memdup(&num, sizeof(int));
 		//lst_append(&list, node);
 		lst_insert(&list, node, 0);
@@ -30,10 +30,12 @@ int	main(void)
 	}
 	print_list(list);
 	printf("\n");
-	lst_rev(&list);
 //	printf("len: %zu\n", lst_len(list));
+	t_list	*piece = lst_slice(&list, 1, 3);
+	print_list(piece);
+	printf("\n");
 	print_list(list);
-	clear_list(&list);
+	clear_list(&list, 1);
 }
 
 static void	print_list(t_list *list)

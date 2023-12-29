@@ -97,27 +97,18 @@ t_list	*lst_slice(t_list **head, size_t start, size_t end)
 {
 	t_list	*curr;
 	t_list	*next;
-	t_list	*subl;
-	size_t	i;
+	t_list	*sub_list;
 
-	i = 0;
+	if (!head || !*head)
+		return (NULL);
 	curr = *head;
-	while (curr)
-	{
-		if (i == start)
-		{
-			subl = curr;
-			next = get_node(curr, end);
-			curr = NULL;
-			if (next && next->next)
-				curr = (next->next)->next;
-			next->next = NULL;
-			if (start == 0)
-				*head = curr;
-			return (subl);
-		}
-		curr = curr->next;
-		i++;
-	}
-	return (NULL);
+	sub_list = get_node(*head, start);
+	curr->next = NULL;
+	if (!sub_list)
+		return (NULL);
+	next = get_node(sub_list, end);
+	if (next)
+		curr->next = next->next;
+	next->next = NULL;
+	return (sub_list);
 }

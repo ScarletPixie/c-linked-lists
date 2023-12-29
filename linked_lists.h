@@ -45,6 +45,7 @@ void		lst_sort(t_list *head, int (*cmp)(void *data1, void *data2));
 void		lst_rev(t_list **head);
 
 // helpers.c
+void		*ft_memdup(void *data, size_t data_size);
 t_list		*get_node(t_list *head, size_t index);
 t_list		*last_node(t_list *head);
 void    	ft_swap(void **ptr1, void **ptr2);
