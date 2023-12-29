@@ -12,7 +12,7 @@
 
 #include "linked_lists.h"
 
-void	clear_list(t_list **head)
+void	clear_list(t_list **head, int free_data)
 {
 	t_list	*tmp;
 
@@ -22,12 +22,14 @@ void	clear_list(t_list **head)
 	while (tmp)
 	{
 		tmp = (*head)->next;
+		if (free_data)
+			free((*head)->data);
 		free(*head);
 		*head = tmp;
 	}
 }
 
-void	clear_list2(t_list2 **head)
+void	clear_list2(t_list2 **head, int free_data)
 {
 	t_list2	*tmp;
 
@@ -37,21 +39,23 @@ void	clear_list2(t_list2 **head)
 	while (tmp)
 	{
 		tmp = (*head)->next;
+		if (free_data = 1)
+			free((*head)->data);
 		free(*head);
 		*head = tmp;
 	}
 }
 
-void	empty_stack(t_stack *stack)
+void	empty_stack(t_stack *stack, int free_data)
 {
 	stack->size = 0;
-	clear_list(&stack->top);
+	clear_list(&stack->top, free_data);
 	stack->bottom = NULL;
 }
 
-void	empty_stack2(t_stack2 *stack)
+void	empty_stack2(t_stack2 *stack, int free_data)
 {
 	stack->size = 0;
-	clear_list2(&stack->top);
+	clear_list2(&stack->top, free_data);
 	stack->bottom = NULL;
 }

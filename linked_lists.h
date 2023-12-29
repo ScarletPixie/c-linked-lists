@@ -20,10 +20,10 @@
 void		*ft_memdup(void *data, size_t data_size);
 
 // free_struct.c
-void		clear_list(t_list **head);
-void		clear_list2(t_list2 **head);
-void		empty_stack(t_stack *stack);
-void		empty_stack2(t_stack2 *stack);
+void		clear_list(t_list **head, int free_data);
+void		clear_list2(t_list2 **head, int free_data);
+void		empty_stack(t_stack *stack, int free_data);
+void		empty_stack2(t_stack2 *stack, int free_data);
 
 // new_struct.c
 t_list		*new_node();
