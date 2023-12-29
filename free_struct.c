@@ -22,7 +22,7 @@ void	clear_list(t_list **head, int free_data)
 	while (tmp)
 	{
 		tmp = (*head)->next;
-		if (free_data)
+		if (free_data == 1)
 			free((*head)->data);
 		free(*head);
 		*head = tmp;
