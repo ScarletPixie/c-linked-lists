@@ -107,10 +107,8 @@ t_list	*lst_slice(t_list **head, size_t start, size_t end)
 	if (!sub_list)
 		return (NULL);
 	next = get_node(sub_list, end);
-	if (next)
-		curr->next = next->next;
 	if (start == 0)
-		*head = curr->next;
+		*head = curr->next
 	next->next = NULL;
 	return (sub_list);
 }
