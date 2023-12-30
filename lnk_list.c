@@ -93,7 +93,7 @@ static t_list	*cut_node(t_list *node)
 	return (node);
 }
 
-t_list	*lst_slice(t_list **head, size_t start, size_t end)
+t_list	*lst_slice(t_list **head, size_t start, size_t size)
 {
 	t_list	*curr;
 	t_list	*next;
@@ -105,15 +105,16 @@ t_list	*lst_slice(t_list **head, size_t start, size_t end)
 	sub_list = get_node(*head, start);
 	if (!sub_list)
 		return (NULL);
-	next = get_node(sub_list, end);
+	next = get_node(sub_list, size);
 	if (start)
 		curr = get_node(*head, start - 1);
 	if (curr && next)
 		curr->next = next->next;
+	else
+		curr->next = NULL;
 	if (next && start == 0)
 		*head = next->next;
-	else
-		*head = curr;
-	next->next = NULL;
+	if (next)
+		next->next = NULL;
 	return (sub_list);
 }
