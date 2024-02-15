@@ -37,28 +37,31 @@ t_list2	*new_node2(void)
 	return (node);
 }
 
-t_stack		*new_stack(void)
+void    clear_list(t_list **head, int free_data)
 {
-	t_stack	*stk;
+    t_list  *tmp;
 
-	stk = malloc(sizeof(t_stack));
-	if (!stk)
-		return (NULL);
-	stk->size = 0;
-	stk->top = NULL;
-	stk->bottom = NULL;
-	return (stk);
+    if (!*head)
+        return ;
+    tmp = *head;
+    while (tmp)
+    {
+        tmp = (*head)->next;                                                                    if (free_data == 1)
+            free((*head)->data);
+        free(*head);
+        *head = tmp;
+    }
 }
 
-t_stack2	*new_stack2(void)
+void    clear_list2(t_list2 **head, int free_data)
 {
-	t_stack2	*stk;
-
-	stk = malloc(sizeof(t_stack2));
-	if (!stk)
-		return (NULL);
-	stk->size = 0;
-	stk->top = NULL;
-	stk->bottom = NULL;
-	return (stk);
+    t_list2 *tmp;
+                                                                                            if (!*head)
+        return ;
+    tmp = *head;
+    while (tmp)                                                                             {
+        tmp = (*head)->next;                                                                    if (free_data == 1)
+            free((*head)->data);
+        free(*head);                                                                            *head = tmp;
+    }
 }

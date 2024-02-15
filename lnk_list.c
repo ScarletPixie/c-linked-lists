@@ -6,7 +6,7 @@ void	lst_insert(t_list **head, t_list *node, size_t index)
 	size_t	i;
 
 	i = 0;
-	if (!node)
+	if (!node || !head)
 		return ;
 	curr = *head;
 	if (!*head || index == 0)
@@ -30,27 +30,27 @@ void	lst_insert(t_list **head, t_list *node, size_t index)
 void	lst_delete(t_list **head, size_t index)
 {
 	t_list	*curr;
-	t_list	*next;
+	t_list	*prev;
 	size_t	i;
 
-	i = 0;
-	curr = *head;
-	if (*head && index == 0)
-	{
-		*head = curr->next;
-		free(curr);
+	if (!head || !*head)
 		return ;
-	}
-	while (curr && curr->next)
+	i = 0;
+	prev = *head;
+	curr = *head;
+	while (curr)
 	{
-		next = (curr->next)->next;
-		if ((i + 1) == index)
+		if (i == index)
 		{
-			free(curr->next);
-			curr->next = next;
+			prev->next = curr->next;
+			if (index == 0)
+				*head = curr->next;
+			free(curr);
 			return ;
 		}
-		curr = curr->next;
+		curr = next->next;
+		if (i > 0)
+			prev = prev->next;
 		i++;
 	}
 }

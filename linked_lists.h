@@ -17,11 +17,9 @@
 #include "typedefs.h"
 
 
-// free_struct.c
+// structs.c
 void		clear_list(t_list **head, int free_data);
 void		clear_list2(t_list2 **head, int free_data);
-
-// new_struct.c
 t_list		*new_node();
 t_list2		*new_node2();
 
