@@ -45,17 +45,3 @@ void	clear_list2(t_list2 **head, int free_data)
 		*head = tmp;
 	}
 }
-
-void	empty_stack(t_stack *stack, int free_data)
-{
-	stack->size = 0;
-	clear_list(&stack->top, free_data);
-	stack->bottom = NULL;
-}
-
-void	empty_stack2(t_stack2 *stack, int free_data)
-{
-	stack->size = 0;
-	clear_list2(&stack->top, free_data);
-	stack->bottom = NULL;
-}

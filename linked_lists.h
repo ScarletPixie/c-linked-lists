@@ -16,20 +16,14 @@
 #include <stdlib.h>
 #include "typedefs.h"
 
-// helpers.c
-void		*ft_memdup(void *data, size_t data_size);
 
 // free_struct.c
 void		clear_list(t_list **head, int free_data);
 void		clear_list2(t_list2 **head, int free_data);
-void		empty_stack(t_stack *stack, int free_data);
-void		empty_stack2(t_stack2 *stack, int free_data);
 
 // new_struct.c
 t_list		*new_node();
 t_list2		*new_node2();
-t_stack		*new_stack();
-t_stack2	*new_stack2();
 
 // lnk_list.c
 void		lst_insert(t_list **head, t_list *node, size_t index);
