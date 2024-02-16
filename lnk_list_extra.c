@@ -4,7 +4,7 @@ void	lst_append(t_list **head, t_list *node)
 {
 	t_list	*last;
 
-	if (!node)
+	if (!node || !head)
 		return ;
 	if (!*head)
 	{
@@ -33,7 +33,7 @@ void	lst_sort(t_list *head, int (*cmp)(void *data1, void *data2))
 	t_list	*inner;
 	t_list	*outer;
 
-	if (!cmp)
+	if (!cmp || !head)
 		return ;
 	inner = head;
 	outer = head;
@@ -59,6 +59,8 @@ void	lst_rev(t_list **head)
 	size_t	i;
 
 	i = 0;
+	if (!head || !*head)
+		return (NULL);
 	len = lst_len(*head);
 	if (!len)
 		return ;
@@ -76,8 +78,25 @@ void      lst_extend(t_list **head, size_t index, t_list *list)                 
     t_list  *curr;
     t_list  *next;
     size_t  i;                                                                          
-    i = 0;                                                                                  curr = *head;                                                                           if (!list)                                                                                  return ;                                                                            while (curr)
+
+	i = 0;
+	if (!list || !head)
+		return ;
+	curr = *head;
+	while (curr)
     {
-        next = curr->next;                                                                      if (i == index)                                                                         {                                                                                           curr->next = list;                                                                      (last_node(list))->next = next;                                                         if (index == 0)                                                                             *head = list;
-            return ;                                                                            }                                                                                       curr = curr->next;                                                                      i++;
-    }                                                                                   }
+		next = curr->next;
+		if (i == index)
+		{
+			curr->next = list;
+			(last_node(list))->next = next;
+			if (index == 0)
+				*head = list;
+			return ;
+		}
+		curr = curr->next;
+		i++;
+    }
+	if (!*head)
+		*head = list;
+}
