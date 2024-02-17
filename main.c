@@ -31,8 +31,8 @@ int	main(void)
 	print_list(list);
 	printf("\n");
 //	printf("len: %zu\n", lst_len(list));
-	t_list	*piece = lst_slice(&list, 0, 3);
-	print_list(piece);
+//	t_list	*piece = lst_slice(&list, 0, 3);
+//	print_list(piece);
 	printf("\n");
 	print_list(list);
 	clear_list(&list, 1);

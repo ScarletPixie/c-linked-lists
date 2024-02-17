@@ -32,9 +32,9 @@ t_list		*lst_slice(t_list **head, size_t start, size_t end);
 // lnk_list_extra.c
 void		lst_append(t_list **head, t_list *node);
 void		lst_extend(t_list **head, size_t index, t_list *list);
-size_t		lst_len(t_list *head);
 void		lst_sort(t_list *head, int (*cmp)(void *data1, void *data2));
 void		lst_rev(t_list **head);
+size_t		lst_len(t_list *head);
 
 // helpers.c
 void		*ft_memdup(void *data, size_t data_size);

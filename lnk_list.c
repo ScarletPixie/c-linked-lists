@@ -48,7 +48,7 @@ void	lst_delete(t_list **head, size_t index)
 			free(curr);
 			return ;
 		}
-		curr = next->next;
+		curr = curr->next;
 		if (i > 0)
 			prev = prev->next;
 		i++;
@@ -81,7 +81,7 @@ t_list      *lst_pop(t_list **head, size_t index)
 		if (i > 0)
 			prev = prev->next;
 	}
-	return (pop);
+	return (NULL);
 }
 
 static t_list	*cut_node(t_list *node)
@@ -101,7 +101,7 @@ t_list	*lst_slice(t_list **head, size_t start, size_t size)
 	if (!head || !*head)
 		return (NULL);
 	curr = *head;
-	sub_list = get_node(*head, start)
+	sub_list = get_node(*head, start);
 	if (!sub_list)
 		return (NULL);
 	while (curr && curr->next != sub_list)
