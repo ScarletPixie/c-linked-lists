@@ -17,13 +17,15 @@ void	lst_insert(t_list **head, t_list *node, size_t index)
 	}
 	while (i <= index && curr)
 	{
-		if (i == index)
+		if (i++ == index)
 		{
-			node->next = curr->next;
-			curr->next = node;
+			if (*head != node)
+			{
+				node->next = curr->next;
+				curr->next = node;
+			}
 		}
 		curr = curr->next;
-		i++;
 	}
 }
 

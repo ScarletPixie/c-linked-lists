@@ -60,7 +60,7 @@ void	lst_rev(t_list **head)
 
 	i = 0;
 	if (!head || !*head)
-		return (NULL);
+		return ;
 	len = lst_len(*head);
 	if (!len)
 		return ;
