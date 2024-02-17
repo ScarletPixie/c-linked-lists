@@ -26,18 +26,4 @@ typedef struct s_list2
 	struct s_list2	*prev;
 }					t_list2;
 
-typedef struct s_stack
-{
-	size_t			size;
-	struct s_list	*top;
-	struct s_list	*bottom;
-}					t_stack;
-
-typedef struct s_stack2
-{
-	size_t			size;
-	struct s_list2	*top;
-	struct s_list2	*bottom;
-}					t_stack2;
-
 #endif
