@@ -6,7 +6,7 @@ void	lst_insert(t_list **head, t_list *node, size_t index)
 	size_t	i;
 
 	i = 0;
-	if (!node || !head)
+	if (!node || !head || *head == node)
 		return ;
 	curr = *head;
 	if ((!*head || index == 0) && (*head != node))
@@ -19,11 +19,8 @@ void	lst_insert(t_list **head, t_list *node, size_t index)
 	{
 		if (i++ == index)
 		{
-			if (*head != node)
-			{
-				node->next = curr->next;
-				curr->next = node;
-			}
+			node->next = curr->next;
+			curr->next = node;
 		}
 		curr = curr->next;
 	}
