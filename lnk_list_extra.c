@@ -12,7 +12,8 @@ void	lst_append(t_list **head, t_list *node)
 		return ;
 	}
 	last = last_node(*head);
-	last->next = node;
+	if (last != node)
+		last->next = node;
 }
 
 size_t	lst_len(t_list *head)
@@ -80,13 +81,13 @@ void      lst_extend(t_list **head, size_t index, t_list *list)                 
     size_t  i;                                                                          
 
 	i = 0;
-	if (!list || !head)
+	if (!list || !head || *head == list)
 		return ;
 	curr = *head;
 	while (curr)
     {
 		next = curr->next;
-		if (i == index)
+		if (i++ == index)
 		{
 			curr->next = list;
 			(last_node(list))->next = next;
@@ -95,7 +96,6 @@ void      lst_extend(t_list **head, size_t index, t_list *list)                 
 			return ;
 		}
 		curr = curr->next;
-		i++;
     }
 	if (!*head)
 		*head = list;
