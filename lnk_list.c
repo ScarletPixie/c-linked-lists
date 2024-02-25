@@ -9,7 +9,7 @@ void	lst_insert(t_list **head, t_list *node, size_t index)
 	if (!node || !head || *head == node)
 		return ;
 	curr = *head;
-	if ((!*head || index == 0) && (*head != node))
+	if (!*head || index == 0)
 	{
 		node->next = *head;
 		*head = node;
