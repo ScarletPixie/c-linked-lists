@@ -6,14 +6,12 @@ void	lst_append(t_list **head, t_list *node)
 
 	if (!node || !head)
 		return ;
-	if (!*head)
+	if (!*head && node != *head)
 	{
 		*head = node;
 		return ;
 	}
 	last = last_node(*head);
-	if (last != node)
-		last->next = node;
 }
 
 size_t	lst_len(t_list *head)

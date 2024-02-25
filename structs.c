@@ -37,31 +37,52 @@ t_list2	*new_node2(void)
 	return (node);
 }
 
-void    clear_list(t_list **head, int free_data)
+void    clear_list(t_list **head, void (*f)(void *data))
 {
     t_list  *tmp;
 
     if (!*head)
         return ;
     tmp = *head;
-    while (tmp)
-    {
-        tmp = (*head)->next;                                                                    if (free_data == 1)
-            free((*head)->data);
-        free(*head);
-        *head = tmp;
-    }
+	if (f)
+	{
+    	while (tmp)
+    	{
+        	tmp = (*head)->next;
+			f((*head)->data);
+        	free(*head);
+        	*head = tmp;
+    	}
+		return ;
+	}
+	while (tmp)
+	{
+		tmp = (*head)->next;
+		free(*head);
+		*head = tmp;
+	}
 }
 
-void    clear_list2(t_list2 **head, int free_data)
+void    clear_list2(t_list2 **head, void (*f)(void *data))
 {
     t_list2 *tmp;
                                                                                             if (!*head)
         return ;
     tmp = *head;
-    while (tmp)                                                                             {
-        tmp = (*head)->next;                                                                    if (free_data == 1)
-            free((*head)->data);
-        free(*head);                                                                            *head = tmp;
-    }
+	if (f)
+	{
+    	while (tmp)
+		{
+	        tmp = (*head)->next;
+			f((*head)->data);
+        	free(*head);                                                                            *head = tmp;
+    	}
+		return ;
+	}
+	while (tmp)
+	{
+		tmp = (*head)->next;
+		free(*head);
+		*head = tmp;
+	}
 }

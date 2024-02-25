@@ -18,8 +18,8 @@
 
 
 // structs.c
-void		clear_list(t_list **head, int free_data);
-void		clear_list2(t_list2 **head, int free_data);
+void		clear_list(t_list **head, void (*f)(void *data));
+void		clear_list2(t_list2 **head, void (*f)(void *data));
 t_list		*new_node();
 t_list2		*new_node2();
 
@@ -36,7 +36,7 @@ void		lst_sort(t_list *head, int (*cmp)(void *data1, void *data2));
 void		lst_rev(t_list **head);
 size_t		lst_len(t_list *head);
 
-// helpers.c
+// lnk_list_helpers.c
 void		*ft_memdup(void *data, size_t data_size);
 t_list		*get_node(t_list *head, size_t index);
 t_list		*last_node(t_list *head);
