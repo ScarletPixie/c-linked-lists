@@ -4,9 +4,9 @@ void	lst_append(t_list **head, t_list *node)
 {
 	t_list	*last;
 
-	if (!node || !head)
+	if (!node || !head || *head == node)
 		return ;
-	if (!*head && node != *head)
+	if (!*head)
 	{
 		*head = node;
 		return ;
