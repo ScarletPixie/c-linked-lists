@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 09:38:30 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/26 15:25:37 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/26 15:33:24 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ void	ft_swap(void **ptr1, void **ptr2)
 {
 	void	*tmp;
 
+	if (!ptr1 || !ptr2)
+		return ;
 	tmp = *ptr1;
 	*ptr1 = *ptr2;
 	*ptr2 = tmp;
