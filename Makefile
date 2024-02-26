@@ -10,10 +10,10 @@ $(NAME):	$(OBJS)
 	ar -rc $(NAME) $(OBJS)
 	ranlib $(NAME)
 
-debug:		$(OBJS)
+debug2:		$(OBJS)
 	cc $(DFLAGS) $(OBJS) main.c -o debug
 	$(MAKE) clean
-debug2:		$(OBJS)
+debug:		$(OBJS)
 	cc $(CFLAGS) -g $(OBJS) main.c -o debug
 	$(MAKE) clean
 

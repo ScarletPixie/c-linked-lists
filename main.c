@@ -31,7 +31,7 @@ int	main(void)
 	printf("BEFORE\n");
 	print_list(list);
 
-	node = new_node(ft_memdup(&num, sizeof(int)), free);
+	node = new_node(ft_memdup(&random, sizeof(int)), free);
 
 	lst_insert(&list, node, 6);
 
