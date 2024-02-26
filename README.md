@@ -5,10 +5,22 @@ This repository contains useful linked list functions.
 # Overview
 
 # Initialization ([new\_struct.c](new_struct.c))
-## t\_list \*new\_node()
-Returns a pointer to an initialized t\_list struct. Returns NULL on failure.
-## t\_list2 \*new\_node2()
-Returns a pointer to an initialized t\_list2 struct. Returns NULL on failure.
+## t\_list \*new\_node(void \*data, void (\*failsafe)(void *data))
+Receives the new node's data and a failsafe function which shall be used on the data if the memory allocation for the new node fails. If no failsafe function is provided the function just returns NULL on failure and does nothing to the data provided.
+Returns the new initialized node on success and NULL on failure.
+```c
+t_list *my_node = new_node((void *)"something", NULL);
+t_list *my_node = new_node((void *)strdup("something"), free);
+```
+
+## t\_list2 \*new\_node2(void \*data, void (\*failsafe)(void *data))
+Receives the new node's data and a failsafe function which shall be used on the data if the memory allocation for the new node fails. If no failsafe function is provided the function just returns NULL on failure and does nothing to the data provided.
+Returns the new pinitialized node on success and NULL on failure.
+```c
+t_list2 *my_node = new_node2((void *)"something", NULL);
+t_list2 *my_node = new_node2((void *)strdup("something"), free);
+```
+
 <br><br><br><br>
 
 # Free memory ([free\_struct.c](free_struct.c))

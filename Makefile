@@ -1,7 +1,7 @@
 NAME	=	liblist.a
 CFLAGS	=	-Wall -Wextra -Werror
 DFLAGS	=	-fsanitize=leak -fsanitize=address -fsanitize=undefined -Wall -Wextra -g
-SRCS	=	lnk_list.c lnk_list_extra.c helpers.c structs.c main.c
+SRCS	=	lnk_list.c lnk_list_extra.c helpers.c structs.c
 OBJS	=	${SRCS:.c=.o}
 
 all:		$(NAME)
@@ -11,10 +11,10 @@ $(NAME):	$(OBJS)
 	ranlib $(NAME)
 
 debug:		$(OBJS)
-	cc $(DFLAGS) $(OBJS) -o debug
+	cc $(DFLAGS) $(OBJS) main.c -o debug
 	$(MAKE) clean
 debug2:		$(OBJS)
-	cc $(CFLAGS) -g $(OBJS) -o debug
+	cc $(CFLAGS) -g $(OBJS) main.c -o debug
 	$(MAKE) clean
 
 %.o:		%.c
