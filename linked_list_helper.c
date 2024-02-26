@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 09:38:30 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/26 14:05:06 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/26 14:32:02 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,15 @@ void	*ft_memdup(const void *data, size_t data_size)
 
 void	ft_memcpy(void *dest, const void *source, size_t data_size)
 {
-	size_t						index;
-	unsigned char *const		dst = (unsigned char *)dest;
-	const unsigned char *const	src = (const unsigned char *)source;
+	size_t			index;
+	unsigned char	*dst;
+	unsigned char	*src;
 
 	if (!source || !data_size)
 		return ;
 	index = 0;
+	dst = (unsigned char *)dest;
+	src = (unsigned char *)source;
 	while (index < data_size)
 	{
 		dst[index] = src[index];

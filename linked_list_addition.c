@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 09:41:34 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/26 13:54:33 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/26 14:37:42 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ void	lst_extend(t_list **head, size_t index, t_list *list)
 t_list	*array_to_list(t_list **head, const void *arr,
 		size_t size, size_t data_size)
 {
+	void	*data;
 	t_list	*node;
 
 	if (!arr || !head || !size)
@@ -95,8 +96,9 @@ t_list	*array_to_list(t_list **head, const void *arr,
 	while (size > 0)
 	{
 		if (size > 0)
-			size--;
-		node = new_node(ft_memdup(arr + size, data_size), free);
+			--size;
+		data = ft_memdup(arr + (size * data_size), data_size);
+		node = new_node(data, free);
 		if (!node)
 			return (clear_list(head, free), NULL);
 		lst_insert(head, node, 0);
