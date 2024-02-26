@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 09:41:34 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/26 15:01:36 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/26 15:03:50 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,14 +85,15 @@ void	lst_extend(t_list **head, size_t index, t_list *list)
 	curr->next = list;
 }
 
-t_list	*array_to_list(t_list **head, const void *arr,
-		size_t size, size_t data_size)
+t_list	*array_to_list(const void *arr, size_t size, size_t data_size)
 {
 	void	*data;
 	t_list	*node;
+	t_list	*head;
 
-	if (!arr || !head || !size || !data_size)
+	if (!arr || !size || !data_size)
 		return (NULL);
+	head = NULL;
 	while (size > 0)
 	{
 		if (size > 0)
@@ -100,12 +101,12 @@ t_list	*array_to_list(t_list **head, const void *arr,
 		data = ft_memdup(arr + (size * data_size), data_size);
 		node = new_node(data, free);
 		if (!node)
-			return (clear_list(head, free), NULL);
-		lst_insert(head, node, 0);
+			return (clear_list(&head, free), NULL);
+		lst_insert(&head, node, 0);
 		if (size == 0)
 			break ;
 	}
-	return (*head);
+	return (head);
 }
 
 void	*list_to_array(t_list *head, size_t data_size)
