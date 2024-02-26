@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 09:41:34 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/26 13:10:57 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/26 13:51:53 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,29 +58,30 @@ void	lst_append(t_list **head, t_list *node)
 
 void	lst_extend(t_list **head, size_t index, t_list *list)
 {
-	t_list	*curr;
-	t_list	*next;
 	size_t	i;
+	t_list	*curr;
 
 	i = 0;
 	if (!list || !head || *head == list)
 		return ;
 	curr = *head;
-	while (curr)
+	if (index == 0 || !*head)
 	{
-		next = curr->next;
-		if (i++ == index)
+		last_node(list)->next = *head;
+		*head = list;
+		return ;
+	}
+	while (curr && i <= index)
+	{
+		if ((i + 1) == index)
 		{
+			(last_node(list))->next = curr->next;
 			curr->next = list;
-			(last_node(list))->next = next;
-			if (index == 0)
-				*head = list;
 			return ;
 		}
 		curr = curr->next;
+		i++;
 	}
-	if (!*head)
-		*head = list;
 }
 
 t_list	*array_to_list(t_list **head, const void *arr,
@@ -92,7 +93,8 @@ t_list	*array_to_list(t_list **head, const void *arr,
 		return (NULL);
 	while (size > 0)
 	{
-		size--;
+		if (size > 0)
+			size--;
 		node = new_node(ft_memdup(arr + size, data_size), free);
 		if (!node)
 			return (clear_list(head, free), NULL);
