@@ -123,10 +123,11 @@ int cmp(void *d1, void *d2)
 }
 lst_sort(unsorted_list, cmp);
 ```
+<br>
 
 ## void	lst_rev(t_list \*head)
 Reverses a list, this function swaps the data pointer of the first node with the last until the list is reversed.
-
+<br>
 
 ## t_list	*lst_pop(t_list \*\*head, size_t index)
 Receives the address of the pointer to the start of the list and the index at which the node will be popped from the list. This function will remove and return a clean node from the list at the index position. The function won't do anything if head of *head is NULL. if the index is beyond the length of the list no nodes will be deleted (it will still iterate through the list).
