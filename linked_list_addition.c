@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 09:41:34 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/26 13:06:31 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/26 13:07:46 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ t_list	*array_to_list(t_list **head, const void *arr,
 		if (size == 0)
 			break ;
 	}
+	return (*head);
 }
 
 void	*list_to_array(t_list *head, size_t data_size)
