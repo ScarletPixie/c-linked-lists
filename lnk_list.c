@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 09:41:34 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/26 09:42:12 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/26 10:04:51 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,18 @@ void	lst_insert(t_list **head, t_list *node, size_t index)
 		*head = node;
 		return ;
 	}
-	while (i <= index && curr)
+	while (i <= index && curr->next)
 	{
 		if ((i + 1) == index)
 		{
 			node->next = curr->next;
 			curr->next = node;
+			return ;
 		}
 		curr = curr->next;
 		i++;
 	}
+	curr->next = node;
 }
 
 void	lst_delete(t_list **head, size_t index)
