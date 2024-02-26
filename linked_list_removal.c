@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:01:59 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/26 13:11:29 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/26 16:15:59 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ t_list	*lst_pop(t_list **head, size_t index)
 		curr = curr->next;
 		if (i > 0)
 			prev = prev->next;
+		i++;
 	}
 	return (NULL);
 }
