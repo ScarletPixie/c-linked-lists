@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 11:29:22 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/26 10:11:44 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/26 10:27:23 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_list2	*new_node2(void)
 	return (node);
 }
 
-void	clear_list(t_list **head, void (*f)(void *data))
+void	clear_list(t_list **head, void (*func)(void *data))
 {
 	t_list	*tmp;
 
@@ -49,7 +49,7 @@ void	clear_list(t_list **head, void (*f)(void *data))
 		while (tmp)
 		{
 			tmp = (*head)->next;
-			f((*head)->data);
+			func((*head)->data);
 			free(*head);
 			*head = tmp;
 		}
@@ -64,7 +64,7 @@ void	clear_list(t_list **head, void (*f)(void *data))
 	*head = NULL;
 }
 
-void	clear_list2(t_list2 **head, void (*f)(void *data))
+void	clear_list2(t_list2 **head, void (*func)(void *data))
 {
 	t_list2	*tmp;
 
@@ -76,7 +76,7 @@ void	clear_list2(t_list2 **head, void (*f)(void *data))
 		while (tmp)
 		{
 			tmp = (*head)->next;
-			f((*head)->data);
+			func((*head)->data);
 			free(*head);
 			*head = tmp;
 		}
