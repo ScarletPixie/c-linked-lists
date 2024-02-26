@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   helpers.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/26 09:38:30 by paulhenr          #+#    #+#             */
+/*   Updated: 2024/02/26 09:39:03 by paulhenr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "linked_lists.h"
 
 void	*ft_memdup(void *data, size_t data_size)
@@ -42,14 +54,14 @@ t_list	*last_node(t_list *head)
 {
 	if (!head)
 		return (NULL);
-	while(head->next)
+	while (head->next)
 		head = head->next;
 	return (head);
 }
 
 void	ft_swap(void **ptr1, void **ptr2)
 {
-	void *tmp;
+	void	*tmp;
 
 	tmp = *ptr1;
 	*ptr1 = *ptr2;

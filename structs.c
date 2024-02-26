@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_struct.c                                       :+:      :+:    :+:   */
+/*   structs.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 11:29:22 by paulhenr          #+#    #+#             */
-/*   Updated: 2023/12/24 12:07:17 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/26 09:43:33 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,22 +37,22 @@ t_list2	*new_node2(void)
 	return (node);
 }
 
-void    clear_list(t_list **head, void (*f)(void *data))
+void	clear_list(t_list **head, void (*f)(void *data))
 {
-    t_list  *tmp;
+	t_list	*tmp;
 
-    if (!*head)
-        return ;
-    tmp = *head;
+	if (!*head)
+		return ;
+	tmp = *head;
 	if (f)
 	{
-    	while (tmp)
-    	{
-        	tmp = (*head)->next;
+		while (tmp)
+		{
+			tmp = (*head)->next;
 			f((*head)->data);
-        	free(*head);
-        	*head = tmp;
-    	}
+			free(*head);
+			*head = tmp;
+		}
 		return ;
 	}
 	while (tmp)
@@ -63,20 +63,22 @@ void    clear_list(t_list **head, void (*f)(void *data))
 	}
 }
 
-void    clear_list2(t_list2 **head, void (*f)(void *data))
+void	clear_list2(t_list2 **head, void (*f)(void *data))
 {
-    t_list2 *tmp;
-                                                                                            if (!*head)
-        return ;
-    tmp = *head;
+	t_list2	*tmp;
+
+	if (!*head)
+		return ;
+	tmp = *head;
 	if (f)
 	{
-    	while (tmp)
+		while (tmp)
 		{
-	        tmp = (*head)->next;
+			tmp = (*head)->next;
 			f((*head)->data);
-        	free(*head);                                                                            *head = tmp;
-    	}
+			free(*head);
+			*head = tmp;
+		}
 		return ;
 	}
 	while (tmp)

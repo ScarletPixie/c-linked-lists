@@ -1,4 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   lnk_list.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/26 09:41:34 by paulhenr          #+#    #+#             */
+/*   Updated: 2024/02/26 09:42:12 by paulhenr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "linked_lists.h"
+
+static t_list	*cut_node(t_list *node);
 
 void	lst_insert(t_list **head, t_list *node, size_t index)
 {
@@ -55,8 +69,7 @@ void	lst_delete(t_list **head, size_t index)
 	}
 }
 
-static t_list	*cut_node(t_list *node);
-t_list      *lst_pop(t_list **head, size_t index)
+t_list	*lst_pop(t_list **head, size_t index)
 {
 	size_t	i;
 	t_list	*curr;
@@ -84,14 +97,6 @@ t_list      *lst_pop(t_list **head, size_t index)
 	return (NULL);
 }
 
-static t_list	*cut_node(t_list *node)
-{
-	if (!node)
-		return (NULL);
-	node->next = NULL;
-	return (node);
-}
-
 t_list	*lst_slice(t_list **head, size_t start, size_t size)
 {
 	t_list	*curr;
@@ -116,4 +121,12 @@ t_list	*lst_slice(t_list **head, size_t start, size_t size)
 	}
 	next = cut_node(next);
 	return (sub_list);
+}
+
+static t_list	*cut_node(t_list *node)
+{
+	if (!node)
+		return (NULL);
+	node->next = NULL;
+	return (node);
 }
