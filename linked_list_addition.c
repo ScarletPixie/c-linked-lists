@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 09:41:34 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/26 14:37:42 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/26 14:48:32 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ void	*list_to_array(t_list *head, size_t data_size)
 	index = 0;
 	while (tmp)
 	{
-		ft_memcpy(array + index, tmp->data, data_size);
+		ft_memcpy(array + (index * data_size), tmp->data, data_size);
 		tmp = tmp->next;
 		index++;
 	}
