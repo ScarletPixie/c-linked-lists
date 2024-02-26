@@ -13,10 +13,11 @@ int cmp(void *d1, void *d2)
 static void	print_list(t_list *list);
 int	main(void)
 {
-	t_list	*list;
-	t_list	*node;
-	int 	num = 1;
+	t_list	*list = NULL;
+	t_list	*node = NULL;
+	int 	num = 5;
 	int		i = 0;
+	int		random = 89;
 
 	while (num-- > 0)
 	{
@@ -30,10 +31,15 @@ int	main(void)
 	}
 	printf("BEFORE\n");
 	print_list(list);
-	printf("\n");
-	lst_delete(&list, 0);
+
+	node = new_node();
+	node->data = ft_memdup(&random, sizeof(int));
+
+	lst_insert(&list, node, 6);
+
 	printf("AFTER\n");
 	print_list(list);
+	
 	clear_list(&list, free);
 }
 
@@ -49,4 +55,5 @@ static void	print_list(t_list *list)
 			printf("NULL\n");
 		list = list->next;
 	}
+	printf("\n");
 }
