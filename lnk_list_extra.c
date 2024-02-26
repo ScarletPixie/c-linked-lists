@@ -6,26 +6,11 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 09:40:36 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/26 09:50:29 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/26 12:15:25 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked_lists.h"
-
-void	lst_append(t_list **head, t_list *node)
-{
-	t_list	*last;
-
-	if (!node || !head || *head == node)
-		return ;
-	if (!*head)
-	{
-		*head = node;
-		return ;
-	}
-	last = last_node(*head);
-	last->next = node;
-}
 
 size_t	lst_len(t_list *head)
 {
@@ -86,29 +71,10 @@ void	lst_rev(t_list **head)
 	}
 }
 
-void	lst_extend(t_list **head, size_t index, t_list *list)
+t_list	*cut_node(t_list *node)
 {
-	t_list	*curr;
-	t_list	*next;
-	size_t	i;
-
-	i = 0;
-	if (!list || !head || *head == list)
-		return ;
-	curr = *head;
-	while (curr)
-	{
-		next = curr->next;
-		if (i++ == index)
-		{
-			curr->next = list;
-			(last_node(list))->next = next;
-			if (index == 0)
-				*head = list;
-			return ;
-		}
-		curr = curr->next;
-	}
-	if (!*head)
-		*head = list;
+	if (!node)
+		return (NULL);
+	node->next = NULL;
+	return (node);
 }
