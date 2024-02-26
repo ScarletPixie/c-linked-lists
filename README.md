@@ -142,6 +142,7 @@ while (--i) // will remove the first 5 nodes from list and insert into other_lis
 clear_list(&list, free);
 clear_list(&other_list, free);
 ```
+
 <br>
 
 ## t_list	\*lst_slice(t_list \*\*head, size_t start, size_t size)
