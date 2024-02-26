@@ -6,25 +6,29 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 11:29:22 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/26 10:29:37 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/26 10:32:12 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked_lists.h"
 
-t_list	*new_node(void *data)
+t_list	*new_node(void *data, void (*failsafe)(void *data));
 {
 	t_list	*node;
 
 	node = malloc(sizeof(t_list));
 	if (!node)
+	{
+		if (callback)
+			callback(data);
 		return (NULL);
+	}
 	node->data = data;
 	node->next = NULL;
 	return (node);
 }
 
-t_list2	*new_node2(void *data)
+t_list2	*new_node2(void *data, void (*failsafe)(void *data))
 {
 	t_list2	*node;
 
