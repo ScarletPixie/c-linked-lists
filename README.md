@@ -67,8 +67,8 @@ int i = 10;
 while (--i) // creates a list of size 10;
 	lst_insert(&list, new_node(ft_memdup(&i, sizeof(int)), free), 0);
 int i = 5;
-while (--i) // will remove 5 nodes from list and insert into other_list
-	lst_insert(&other_list, lst_pop(&list), 0);
+while (--i) // will remove the first 5 nodes from list and insert into other_list
+	lst_insert(&other_list, lst_pop(&list, 0), 0);
 clear_list(&list, free);
 clear_list(&other_list, free);
 ```
