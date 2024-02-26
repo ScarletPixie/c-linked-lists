@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 11:29:22 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/26 09:43:33 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/26 10:11:44 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void	clear_list(t_list **head, void (*f)(void *data))
 		free(*head);
 		*head = tmp;
 	}
+	*head = NULL;
 }
 
 void	clear_list2(t_list2 **head, void (*f)(void *data))
@@ -87,4 +88,5 @@ void	clear_list2(t_list2 **head, void (*f)(void *data))
 		free(*head);
 		*head = tmp;
 	}
+	*head = NULL;
 }
