@@ -145,4 +145,4 @@ clear_list(&other_list, free);
 <br>
 
 ## t_list	\*lst_slice(t_list \*\*head, size_t start, size_t size)
-This function cuts list by size size starting from the start index. It won't do anything if head or *head is NULL or if the start index is beyond the len the of list.
+This function cuts list by size size starting from the start index. It won't do anything if head or *head is NULL or if the start index is beyond the len the of list or if size is 0. It then returns the cut part of the list.
