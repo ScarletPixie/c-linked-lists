@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 09:41:34 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/26 10:57:58 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/26 11:55:23 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	lst_insert(t_list **head, t_list *node, size_t index)
 	curr->next = node;
 }
 
-void	lst_delete(t_list **head, size_t index)
+void	lst_delete(t_list **head, size_t index, void (*func)(void *data))
 {
 	t_list	*curr;
 	t_list	*prev;

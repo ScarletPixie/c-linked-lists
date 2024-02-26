@@ -46,7 +46,17 @@ clear_list2(&my_list, my_custom_free_function);
 ```
 <br><br><br><br>
 
-#Singly Linked Lists Functions
+# Singly Linked Lists Functions
+
+## t_list	\*get_node(t_list \*head, size_t index)
+Returns the node at index position from the list (next field is not modified and still points to it's original address).
+
+ <br>
+
+## t_list	\*last_node(t_list \*head)
+Returns the last node of the list.
+
+<br>
 
 ## void	lst_insert(t_list \*\*head, t_list \*node, size_t index)
 Receives the address of the pointer to the start of the list, the node to be inserted in the list and the index in which said node will be inserted. The function will return without doing anything in the following cases: node is null, head argument or \*head is null or if *head points to the same address as node. If the list is null or if the index is 0 *head will point to the new node, if the index is beyond the length of the list, node will be added to the end of the list.
@@ -72,3 +82,6 @@ while (--i) // will remove the first 5 nodes from list and insert into other_lis
 clear_list(&list, free);
 clear_list(&other_list, free);
 ```
+
+## t_list	\*lst_slice(t_list \*\*head, size_t start, size_t size)
+This function cuts list by size size starting from the start index. It won't do anything if head or *head is NULL or if the start index is beyond the len the of list.

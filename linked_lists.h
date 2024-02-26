@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 10:35:25 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/26 10:32:22 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/26 11:55:38 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_list2		*new_node2(void *data, void (*failsafe)(void *data));
 
 // lnk_list.c
 void		lst_insert(t_list **head, t_list *node, size_t index);
-void		lst_delete(t_list **head, size_t index);
+void		lst_delete(t_list **head, size_t index, void (*func)(void *data));
 t_list		*lst_pop(t_list **head, size_t index);
 t_list		*lst_slice(t_list **head, size_t start, size_t end);
 
