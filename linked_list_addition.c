@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lnk_list.c                                         :+:      :+:    :+:   */
+/*   linked_list_addition.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 09:41:34 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/26 12:15:36 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/26 12:39:01 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,28 @@ void	lst_extend(t_list **head, size_t index, t_list *list)
 	}
 	if (!*head)
 		*head = list;
+}
+
+void	*list_to_array(t_list *head, size_t data_size)
+{
+	size_t	index;
+	void	*array;
+	t_list	*tmp;
+	size_t	size;
+
+	size = lst_len(head);
+	if (!head || !size)
+		return ;
+	array = malloc(data_size * size);
+	if (!array)
+		return (NULL);
+	tmp = head;
+	index = 0;
+	while (tmp)
+	{
+		ft_memcpy(&array[index], tmp->data, data_size);
+		tmp = tmp->next;
+		index++;
+	}
+	return (array);
 }

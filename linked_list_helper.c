@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers.c                                          :+:      :+:    :+:   */
+/*   linked_list_helper.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 09:38:30 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/26 09:39:03 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/26 12:44:58 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,22 @@ void	*ft_memdup(void *data, size_t data_size)
 		i++;
 	}
 	return ((void *)dup);
+}
+
+void	ft_memcpy(void *dest, const void *source, size_t data_size)
+{
+	size_t						index;
+	unsigned char *const		dst = (unsigned char *)dest;
+	const unsigned char *const	src = (const unsigned char *)source;
+
+	if (!dest || !source || !data_size)
+		return ;
+	index = 0;
+	while (index < data_size)
+	{
+		dst[index] = src[index];
+		index++;
+	}
 }
 
 t_list	*get_node(t_list *head, size_t index)
