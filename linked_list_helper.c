@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 09:38:30 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/26 12:54:23 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/26 14:05:06 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_memcpy(void *dest, const void *source, size_t data_size)
 	unsigned char *const		dst = (unsigned char *)dest;
 	const unsigned char *const	src = (const unsigned char *)source;
 
-	if (!dest || !source || !data_size)
+	if (!source || !data_size)
 		return ;
 	index = 0;
 	while (index < data_size)
