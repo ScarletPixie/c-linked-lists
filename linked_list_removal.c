@@ -6,14 +6,14 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:01:59 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/26 16:15:59 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/26 16:33:23 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked_lists.h"
 
 static void	del_func(t_list **head, size_t index, void (*func)(void *data));
-static void del_no_func(t_list **head, size_t index);
+static void	del_no_func(t_list **head, size_t index);
 
 void	lst_delete(t_list **head, size_t index, void (*func)(void *data))
 {
@@ -60,22 +60,24 @@ t_list	*lst_slice(t_list **head, size_t start, size_t size)
 	t_list	*next;
 	t_list	*sub_list;
 
-	if (!head || !*head)
+	if (!head || !*head || !size)
 		return (NULL);
 	curr = *head;
 	sub_list = get_node(*head, start);
 	if (!sub_list)
 		return (NULL);
-	while (curr && curr->next != sub_list)
+	while (curr && (curr->next != sub_list) && (curr != sub_list))
 		curr = curr->next;
-	curr = cut_node(curr);
-	next = get_node(sub_list, size);
+	if (curr != sub_list)
+		curr = cut_node(curr);
+	next = get_node(sub_list, size - 1);
 	if (next)
 	{
-		if (start == 0)
-			(*head)->next = next->next;
-		curr->next = next->next;
+		if (start > 0 && (curr != sub_list))
+			curr->next = next->next;
 	}
+	if (start == 0)
+		(*head) = get_node(next, 1);
 	next = cut_node(next);
 	return (sub_list);
 }
@@ -107,7 +109,7 @@ static void	del_func(t_list **head, size_t index, void (*func)(void *data))
 	}
 }
 
-static void del_no_func(t_list **head, size_t index)
+static void	del_no_func(t_list **head, size_t index)
 {
 	t_list	*curr;
 	t_list	*prev;
