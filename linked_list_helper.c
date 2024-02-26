@@ -6,13 +6,13 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 09:38:30 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/26 12:44:58 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/26 12:54:23 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked_lists.h"
 
-void	*ft_memdup(void *data, size_t data_size)
+void	*ft_memdup(const void *data, size_t data_size)
 {
 	size_t			i;
 	unsigned char	*dup;
