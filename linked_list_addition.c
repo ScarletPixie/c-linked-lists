@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 09:41:34 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/26 13:52:53 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/26 13:54:33 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	lst_extend(t_list **head, size_t index, t_list *list)
 		*head = list;
 		return ;
 	}
-	while (curr && i <= index)
+	while (curr->next && i <= index)
 	{
 		if ((i + 1) == index)
 		{
@@ -82,6 +82,7 @@ void	lst_extend(t_list **head, size_t index, t_list *list)
 		curr = curr->next;
 		i++;
 	}
+	curr->next = list;
 }
 
 t_list	*array_to_list(t_list **head, const void *arr,
