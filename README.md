@@ -105,6 +105,7 @@ Receives the address of the pointer to the start of the list, the index to delet
 
 ## size_t	lst_len(t_list \*head)
 Returns how many nodes are in the list.
+
 <br>
 
 ## t_list	\*cut_node(t_list \*node)
