@@ -111,6 +111,23 @@ Returns how many nodes are in the list.
 Sets the node's next field to NULL and returns it. Returns NULL if node is NULL.
 <br>
 
+## void	lst_sort(t_list \*head, int (\*cmp)(void \*data1, void \*data2))
+Sorts the list using insertion sort, it takes the pointer to the list and a function pointer to be used between 2 node's data field, it has to return an integer, the nodes themselves are not moved around it's just their datas that gets swapped. Does nothing if cmp or head is NULL.
+```c
+int cmp(void *d1, void *d2)
+{
+	int *a = (int *)d1;
+	int *b = (int *)d2;
+
+	return (*a - *b);
+}
+lst_sort(unsorted_list, cmp);
+```
+
+## void	lst_rev(t_list \*head)
+Reverses a list, this function swaps the data pointer of the first node with the last until the list is reversed.
+
+
 ## t_list	*lst_pop(t_list \*\*head, size_t index)
 Receives the address of the pointer to the start of the list and the index at which the node will be popped from the list. This function will remove and return a clean node from the list at the index position. The function won't do anything if head of *head is NULL. if the index is beyond the length of the list no nodes will be deleted (it will still iterate through the list).
 ```c

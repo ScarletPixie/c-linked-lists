@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 10:35:25 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/26 15:04:10 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/26 16:06:18 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,10 @@ t_list		*lst_pop(t_list **head, size_t index);
 
 // linked_list_misc.c
 void		lst_sort(t_list *head, int (*cmp)(void *data1, void *data2));
-void		lst_rev(t_list **head);
+void		lst_rev(t_list *head);
 t_list		*cut_node(t_list *node);
 size_t		lst_len(t_list *head);
 
-// lnk_list_extra.c
-void		lst_sort(t_list *head, int (*cmp)(void *data1, void *data2));
-void		lst_rev(t_list **head);
-size_t		lst_len(t_list *head);
 
 // linked_list_helper.c
 void		*ft_memdup(const void *data, size_t data_size);
