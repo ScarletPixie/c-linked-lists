@@ -6,14 +6,14 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:01:59 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/26 12:21:51 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/26 13:11:29 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked_lists.h"
 
 static void	del_func(t_list **head, size_t index, void (*func)(void *data));
-static void del_no_func(t_list **head, size_t index, void (*func)(void *data));
+static void del_no_func(t_list **head, size_t index);
 
 void	lst_delete(t_list **head, size_t index, void (*func)(void *data))
 {
@@ -22,7 +22,7 @@ void	lst_delete(t_list **head, size_t index, void (*func)(void *data))
 	if (func)
 		del_func(head, index, func);
 	else
-		del_no_func(head, index, func);
+		del_no_func(head, index);
 }
 
 t_list	*lst_pop(t_list **head, size_t index)
@@ -106,7 +106,7 @@ static void	del_func(t_list **head, size_t index, void (*func)(void *data))
 	}
 }
 
-static void del_no_func(t_list **head, size_t index, void (*func)(void *data))
+static void del_no_func(t_list **head, size_t index)
 {
 	t_list	*curr;
 	t_list	*prev;

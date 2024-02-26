@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 09:41:34 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/26 13:07:46 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/26 13:10:57 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,9 @@ t_list	*array_to_list(t_list **head, const void *arr,
 
 	if (!arr || !head || !size)
 		return (NULL);
-	while (--size >= 0)
+	while (size > 0)
 	{
+		size--;
 		node = new_node(ft_memdup(arr + size, data_size), free);
 		if (!node)
 			return (clear_list(head, free), NULL);
@@ -111,7 +112,7 @@ void	*list_to_array(t_list *head, size_t data_size)
 
 	size = lst_len(head);
 	if (!head || !size)
-		return ;
+		return (NULL);
 	array = malloc(data_size * size);
 	if (!array)
 		return (NULL);
@@ -119,7 +120,7 @@ void	*list_to_array(t_list *head, size_t data_size)
 	index = 0;
 	while (tmp)
 	{
-		ft_memcpy(&array[index], tmp->data, data_size);
+		ft_memcpy(array + index, tmp->data, data_size);
 		tmp = tmp->next;
 		index++;
 	}
