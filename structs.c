@@ -6,21 +6,21 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 11:29:22 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/26 10:32:12 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/26 10:35:06 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked_lists.h"
 
-t_list	*new_node(void *data, void (*failsafe)(void *data));
+t_list	*new_node(void *data, void (*failsafe)(void *data))
 {
 	t_list	*node;
 
 	node = malloc(sizeof(t_list));
 	if (!node)
 	{
-		if (callback)
-			callback(data);
+		if (failsafe)
+			failsafe(data);
 		return (NULL);
 	}
 	node->data = data;
@@ -34,7 +34,11 @@ t_list2	*new_node2(void *data, void (*failsafe)(void *data))
 
 	node = malloc(sizeof(t_list2));
 	if (!node)
+	{
+		if (failsafe)
+			failsafe(data);
 		return (NULL);
+	}
 	node->data = data;
 	node->next = NULL;
 	node->prev = NULL;
@@ -48,7 +52,7 @@ void	clear_list(t_list **head, void (*func)(void *data))
 	if (!*head)
 		return ;
 	tmp = *head;
-	if (f)
+	if (func)
 	{
 		while (tmp)
 		{
@@ -75,7 +79,7 @@ void	clear_list2(t_list2 **head, void (*func)(void *data))
 	if (!*head)
 		return ;
 	tmp = *head;
-	if (f)
+	if (func)
 	{
 		while (tmp)
 		{

@@ -21,19 +21,17 @@ int	main(void)
 
 	while (num-- > 0)
 	{
-		node = new_node();
+		node = new_node(ft_memdup(&num, sizeof(int)), free);
 		if (!node)
 			return (clear_list(&list, free), 1);
-		node->data = ft_memdup(&num, sizeof(int));
-		//lst_append(&list, node);
+
 		lst_insert(&list, node, 0);
 		i++;
 	}
 	printf("BEFORE\n");
 	print_list(list);
 
-	node = new_node();
-	node->data = ft_memdup(&random, sizeof(int));
+	node = new_node(ft_memdup(&num, sizeof(int)), free);
 
 	lst_insert(&list, node, 6);
 
