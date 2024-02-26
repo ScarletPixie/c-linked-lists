@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 09:41:34 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/26 14:48:32 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/26 15:01:36 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ t_list	*array_to_list(t_list **head, const void *arr,
 	void	*data;
 	t_list	*node;
 
-	if (!arr || !head || !size)
+	if (!arr || !head || !size || !data_size)
 		return (NULL);
 	while (size > 0)
 	{
