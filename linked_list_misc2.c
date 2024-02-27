@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 09:35:48 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/27 13:21:03 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/27 13:37:07 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,5 @@ t_list2	*cut_node2(t_list2 *node)
 		return (NULL);
 	node->next = NULL;
 	node->prev = NULL;
-	return (NULL);
+	return (node);
 }
