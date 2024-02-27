@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 09:35:48 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/27 09:35:49 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/27 09:38:52 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,19 @@ void	lst_rev2(t_list2 *head)
 	}
 }
 
+void	*link_node2(t_list2 *node1, t_list2 *node2)
+{
+	if (node1 && node2)
+	{
+		node1->next = node2;
+		node2->prev = node1;
+		return ;
+	}
+	if (node1)
+		node1->next = node2;
+	if (node2)
+		node2->prev = node1;
+}
 
 t_list2	*cut_node2(t_list2 *node)
 {
