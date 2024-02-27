@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 09:42:49 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/27 14:50:30 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/27 15:46:26 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,31 @@
 
 void	lst_insert2(t_list2 **head, t_list2 *node, size_t index)
 {
+	size_t	i;
 	t_list2	*curr;
 
-	if (!node || !head || *head == node || ((node->next != NULL
-				|| node->prev != NULL) && (index != 0) && *head))
+	i = 0;
+	if (!node || !head || *head == node || node->next || node->prev)
 		return ;
+	curr = *head;
 	if (index == 0 || !*head)
 	{
 		link_node2(node, *head);
 		*head = node;
 		return ;
 	}
-	curr = *head;
-	while (curr->next && index > 0)
+	while (i < index && curr->next)
 	{
+		i++;
 		curr = curr->next;
-		index--;
 	}
-	if (index != 0)
+	if (i == index)
 	{
-		link_node2(curr, node);
+		link_node2(curr->prev, node);
+		link_node2(node, curr);
 		return ;
 	}
-	link_node2(curr->prev, node);
-	link_node2(node, curr);
+	link_node2(curr, node);
 }
 
 void	lst_append2(t_list2 **head, t_list2 *node)
