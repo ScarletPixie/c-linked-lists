@@ -38,6 +38,28 @@ t_list	*last_node(t_list *head)
 	return (head);
 }
 
+t_list2	*get_node2(t_list2 *head, size_t index)
+{
+	size_t	i;
+
+	i = 0;
+	while (i <= index)
+	{
+		head = head->next;
+		i++;
+	}
+	return (head);
+}
+
+t_list2	*last_node2(t_list2 *head)
+{
+	if (!head)
+		return (NULL);
+	while (head->next)
+		head = head->next;
+	return (head);
+}
+
 void	ft_swap(void **ptr1, void **ptr2)
 {
 	void	*tmp;
