@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 10:02:50 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/27 10:18:54 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/27 13:43:56 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_list2	*lst_pop2(t_list2 **head, size_t index)
 	if (!head || !*head)
 		return (NULL);
 	curr = *head;
-	while (i <= index && curr)
+	while (i < index && curr)
 	{
 		curr = curr->next;
 		i++;
@@ -43,8 +43,7 @@ t_list2	*lst_pop2(t_list2 **head, size_t index)
 	{
 		if (index == 0)
 			*head = (*head)->next;
-		else
-			link_node2(curr->prev, curr->next);
+		link_node2(curr->prev, curr->next);
 		return (cut_node2(curr));
 	}
 	return (NULL);

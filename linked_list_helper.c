@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 09:38:30 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/26 15:33:24 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/27 13:46:34 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ t_list2	*get_node2(t_list2 *head, size_t index)
 	size_t	i;
 
 	i = 0;
-	while (i <= index)
+	while (head && (i <= index))
 	{
 		head = head->next;
 		i++;
