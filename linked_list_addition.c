@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 09:41:34 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/27 15:23:30 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/27 15:29:43 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,30 @@
 void	lst_insert(t_list **head, t_list *node, size_t index)
 {
 	t_list	*curr;
+	size_t	i;
 
+	i = 0;
 	if (!node || !head || *head == node || node->next != NULL)
 		return ;
+	curr = *head;
 	if (!*head || index == 0)
 	{
 		node->next = *head;
 		*head = node;
 		return ;
 	}
-	curr = *head;
-	while (curr->next && index > 0)
+	while (i <= index && curr->next)
 	{
+		if ((i + 1) == index)
+		{
+			node->next = curr->next;
+			curr->next = node;
+			return ;
+		}
 		curr = curr->next;
-		index--;
+		i++;
 	}
-	if (index == 0)
-	{
-		node->next = curr;
-		curr->next = node;
-	}
-	else
-		curr->next = node;
+	curr->next = node;
 }
 
 void	lst_append(t_list **head, t_list *node)
