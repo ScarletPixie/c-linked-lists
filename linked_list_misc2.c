@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 09:35:48 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/27 10:20:30 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/27 12:58:59 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	lst_rev2(t_list2 *head)
 	if (!head || !head->next)
 		return ;
 	last = last_node2(head);
-	while (head->next != last->prev)
+	while (head != last)
 	{
 		ft_swap(&head->data, &last->data);
 		last = last->prev;
