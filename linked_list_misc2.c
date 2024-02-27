@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   linked_list_misc2.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/27 09:35:48 by paulhenr          #+#    #+#             */
+/*   Updated: 2024/02/27 09:35:49 by paulhenr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "linked_lists.h"
 
 size_t	lst_len2(t_list2 *head)
@@ -36,28 +48,21 @@ void    lst_sort2(t_list2 *head, int (*cmp)(void *data1, void *data2))
 	}
 }
 
-void    lst_rev2(t_list2 *head)
+void	lst_rev2(t_list2 *head)
 {
-	size_t  i;
-	t_list2  *tmp;
-	t_list2  *tmp2;
-	size_t  len;
+	t_list2	*last;
 
-	i = 0;
-	if (!head)
+	if (!head || !head->next)
 		return ;
-	len = lst_len2(head);
-	if (!len)
-		return ;
-	tmp = head;
-	while (i < len / 2)
+	last = last_node2(head);
+	while (head->next != last->prev)
 	{
-		tmp2 = get_node2(head, lst_len(head) - 1 - i);
-		ft_swap(&tmp->data, &tmp2->data);
-		tmp = tmp->next;
-		i++;
+		ft_swap(&head->data, &last->data);
+		last = last->prev;
+		head = head->next;
 	}
 }
+
 
 t_list2	*cut_node2(t_list2 *node)
 {
