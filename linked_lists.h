@@ -52,7 +52,9 @@ void		*ft_memdup(const void *data, size_t data_size);
 void		ft_memcpy(void *dest, const void *source, size_t data_size);
 
 // linked_list_misc2.c
-size_t  	lst_len2(t_list2 *head);
+void		lst_rev2(t_list2 *head);
+void		lst_sort2(t_list2 *head, int (*cmp)(void *data1, void *data2));
+size_t		lst_len2(t_list2 *head);
 t_list2		*cut_node2(t_list2 *node);
 
 #endif
