@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 10:02:50 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/27 13:51:06 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/27 14:20:50 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,23 +57,17 @@ t_list2	*lst_slice2(t_list2 **head, size_t start, size_t size)
 
 	if (!head || !*head || !size)
 		return (NULL);
-	curr = *head;
 	sub_list = get_node2(*head, start);
 	if (!sub_list)
 		return (NULL);
-	while (curr && (curr->next != sub_list) && (curr != sub_list))
-		curr = curr->next;
-	if (curr != sub_list)
-		curr = cut_node2(curr);
+	curr = sub_list->prev;
+	sub_list->prev = NULL;
 	next = get_node2(sub_list, size - 1);
-	if (next)
-	{
-		if (start > 0 && (curr != sub_list))
-			curr->next = next->next;
-	}
+	link_node2(curr, get_node2(next, 1));
 	if (start == 0)
 		(*head) = get_node2(next, 1);
-	next = cut_node2(next);
+	if (next)
+		next->next = NULL;
 	return (sub_list);
 }
 

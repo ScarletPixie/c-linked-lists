@@ -14,7 +14,7 @@ $(NAME):	$(OBJS)
 	ranlib $(NAME)
 
 debug2:		$(OBJS)
-	cc $(CFLAGS) $(OBJS) main2.c -o debug
+	cc $(CFLAGS) -g $(OBJS) main2.c -o debug
 	$(MAKE) clean
 debug:		$(OBJS)
 	cc $(CFLAGS) -g $(OBJS) main.c -o debug
