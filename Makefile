@@ -12,9 +12,9 @@ $(NAME):	$(OBJS)
 	ar -rc $(NAME) $(OBJS)
 	ranlib $(NAME)
 
-debug:	$(OBJS)
-	cc $(CFLAGS) -g $(OBJS) main2.c -o debug
-	$(MAKE) clean
+#debug:	$(OBJS)
+#	cc $(CFLAGS) -g $(OBJS) main2.c -o debug
+#	$(MAKE) clean
 
 %.o:		%.c
 	cc $(CFLAGS) -c $< -o $@
