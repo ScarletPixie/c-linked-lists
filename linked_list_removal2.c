@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 10:02:50 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/27 13:43:56 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/27 13:51:06 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_list2	*lst_pop2(t_list2 **head, size_t index)
 	if (!head || !*head)
 		return (NULL);
 	curr = *head;
-	while (i < index && curr)
+	while (i < index && curr->next)
 	{
 		curr = curr->next;
 		i++;
