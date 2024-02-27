@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 10:35:25 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/26 16:39:30 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/27 09:39:22 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void		ft_memcpy(void *dest, const void *source, size_t data_size);
 // linked_list_misc2.c
 void		lst_rev2(t_list2 *head);
 void		lst_sort2(t_list2 *head, int (*cmp)(void *data1, void *data2));
+void		*link_node2(t_list2 *node1, t_list2 *node2);
 size_t		lst_len2(t_list2 *head);
 t_list2		*cut_node2(t_list2 *node);
 
