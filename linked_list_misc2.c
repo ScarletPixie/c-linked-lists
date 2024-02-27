@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 09:35:48 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/27 13:37:07 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/27 13:40:55 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void	lst_sort2(t_list2 *head, int (*cmp)(void *data1, void *data2))
 	}
 }
 
-#include <stdio.h>
 void	lst_rev2(t_list2 *head)
 {
 	size_t	size;
