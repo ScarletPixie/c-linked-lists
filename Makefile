@@ -2,7 +2,7 @@ NAME	=	liblist.a
 CFLAGS	=	-Wall -Wextra -Werror
 DFLAGS	=	-fsanitize=leak -fsanitize=address -fsanitize=undefined -Wall -Wextra -g
 SRCS	=	linked_list_addition.c linked_list_helper.c linked_list_removal.c linked_list_misc.c \
-			structs.c utils.c
+			structs.c utils.c linked_list_misc2.c
 OBJS	=	${SRCS:.c=.o}
 
 all:		$(NAME)

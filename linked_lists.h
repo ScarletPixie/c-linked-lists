@@ -41,10 +41,18 @@ t_list		*cut_node(t_list *node);
 size_t		lst_len(t_list *head);
 
 // linked_list_helper.c
-void		*ft_memdup(const void *data, size_t data_size);
 void		ft_swap(void **ptr1, void **ptr2);
-void		ft_memcpy(void *dest, const void *source, size_t data_size);
 t_list		*get_node(t_list *head, size_t index);
 t_list		*last_node(t_list *head);
+t_list2		*get_node2(t_list2 *head, size_t index);
+t_list2		*last_node2(t_list2 *head);
+
+// utils.c
+void		*ft_memdup(const void *data, size_t data_size);
+void		ft_memcpy(void *dest, const void *source, size_t data_size);
+
+// linked_list_misc2.c
+size_t  	lst_len2(t_list2 *head);
+t_list2		*cut_node2(t_list2 *node);
 
 #endif
