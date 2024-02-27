@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 09:41:34 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/27 14:54:53 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/27 15:23:30 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ void	lst_insert(t_list **head, t_list *node, size_t index)
 {
 	t_list	*curr;
 
-	if (!node || !head || *head == node
-		|| (node->next != NULL && index != 0 && *head))
+	if (!node || !head || *head == node || node->next != NULL)
 		return ;
 	if (!*head || index == 0)
 	{
