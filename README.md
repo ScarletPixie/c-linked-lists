@@ -4,7 +4,7 @@ This repository contains useful linked list functions. Both for singly linked li
 
 # Overview
 
-All the functions for singly linked lists also have a doubly linked list version, the only extra function doubly linked lists provides is "link_node2".
+All the functions for singly linked lists also have a doubly linked list version, the only extra function for doubly linked lists is "link_node2".
 
 <br>
 
