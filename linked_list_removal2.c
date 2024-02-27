@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 10:02:50 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/27 10:13:58 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/27 10:18:54 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	lst_delete2(t_list2 **head, size_t index, void (*func)(void *data))
 		del_no_func(head, index);
 }
 
-t_list	*lst_pop2(t_list2 **head, size_t index)
+t_list2	*lst_pop2(t_list2 **head, size_t index)
 {
 	size_t	i;
 	t_list2	*curr;
@@ -50,7 +50,7 @@ t_list	*lst_pop2(t_list2 **head, size_t index)
 	return (NULL);
 }
 
-t_list	*lst_slice2(t_list2 **head, size_t start, size_t size)
+t_list2	*lst_slice2(t_list2 **head, size_t start, size_t size)
 {
 	t_list2	*curr;
 	t_list2	*next;
@@ -97,7 +97,7 @@ static void	del_func(t_list2 **head, size_t index, void (*func)(void *data))
 		link_node2(curr->prev, curr->next);
 		func(curr->data);
 		free(curr);
-	}	
+	}
 }
 
 static void	del_no_func(t_list2 **head, size_t index)
@@ -118,5 +118,5 @@ static void	del_no_func(t_list2 **head, size_t index)
 	{
 		link_node2(curr->prev, curr->next);
 		free(curr);
-	}	
+	}
 }

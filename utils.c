@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/27 10:18:13 by paulhenr          #+#    #+#             */
+/*   Updated: 2024/02/27 10:18:30 by paulhenr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "linked_lists.h"
 
 void	*ft_memdup(const void *data, size_t data_size)
 {
-	size_t          i;
-	unsigned char   *dup;
-	unsigned char   *tpd;
+	size_t			i;
+	unsigned char	*dup;
+	unsigned char	*tpd;
 
 	if (!data || !data_size)
 		return (NULL);
@@ -23,9 +35,9 @@ void	*ft_memdup(const void *data, size_t data_size)
 
 void	ft_memcpy(void *dest, const void *source, size_t data_size)
 {
-	size_t          index;
-	unsigned char   *dst;
-	unsigned char   *src;
+	size_t			index;
+	unsigned char	*dst;
+	unsigned char	*src;
 
 	if (!source || !data_size || !dest)
 		return ;

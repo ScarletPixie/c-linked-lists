@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 09:42:49 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/27 10:09:22 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/27 10:15:16 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	lst_extend2(t_list2 **head, size_t index, t_list2 *list)
 	link_node2(curr, list);
 }
 
-t_list	*array_to_list2(const void *arr, size_t size, size_t data_size)
+t_list2	*array_to_list2(const void *arr, size_t size, size_t data_size)
 {
 	void	*data;
 	t_list2	*node;
