@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 10:35:25 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/27 10:20:36 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/27 10:44:04 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,15 @@ t_list2		*cut_node2(t_list2 *node);
 void		lst_delete2(t_list2 **head, size_t index, void (*func)(void *data));
 t_list2		*lst_pop2(t_list2 **head, size_t index);
 t_list2		*lst_slice2(t_list2 **head, size_t start, size_t size);
+
+// get_data.c / get_data_extra.c
+int			*int_from_data(void *data);
+char		*str_from_data(void *data);
+long		*long_from_data(void *data);
+float		*float_from_data(void *data);
+double		*double_from_data(void *data);
+size_t		*zu_from_data(void *data);
+t_list		*t_list_from_data(void *data);
+t_list2		*t_list2_from_data(void *data);
 
 #endif
