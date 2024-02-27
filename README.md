@@ -4,6 +4,10 @@ This repository contains useful linked list functions.
 
 # Overview
 
+All the functions for singly linked lists also have a doubly linked list version, the only extra function doubly linked lists provides is "link_node2".
+
+<br>
+
 # Initialization ([new\_struct.c](new_struct.c))
 ## t\_list \*new\_node(void \*data, void (\*failsafe)(void *data))
 Receives the new node's data and a failsafe function which shall be used on the data if the memory allocation for the new node fails. If no failsafe function is provided the function just returns NULL on failure and does nothing to the data provided.
@@ -108,17 +112,7 @@ Takes the address of a pointer and swaps the contents of ptr1 and ptr2. Does not
 <br>
 
 ## void	lst_delete(t_list \*\*head, size_t index, void (\*func)(void \*data))
-Receives the address of the pointer to the start of the list, the index to delete the node at position index and an optional function to apply to each node's data. The function will not do anything if head or *head is null, if the index is beyond the length of the list no nodes will be deleted (it will still iterate through the list).
-
-<br>
-
-## size_t	lst_len(t_list \*head)
-Returns how many nodes are in the list.
-
-<br>
-
-## t_list	\*cut_node(t_list \*node)
-Sets the node's next field to NULL and returns it. Returns NULL if node is NULL.
+Receives the address of the pointer to the start of the list, the index to delete the node at position index and an optional function to apply to each node's data. The function will not do anything if head or *head is null, if the index is beyond tmake_list(0, 0)field to NULL and returns it. Returns NULL if node is NULL.
 
 <br>
 
@@ -160,3 +154,8 @@ clear_list(&other_list, free);
 
 ## t_list	\*lst_slice(t_list \*\*head, size_t start, size_t size)
 This function cuts list by size size starting from the start index. It won't do anything if head or *head is NULL or if the start index is beyond the len the of list or if size is 0. It then returns the cut part of the list.
+
+<br>
+
+## void	link_node2(t_list2 \*node1, t_list2 \*node2)
+This function links node1's next field to node2 and node2's prev field to node1, if all arguments are NULL then nothing is done, if one of them is NULL only one operation will be done, for example if node1 is NULL then node2's prev is set to NULL and vice versa.
