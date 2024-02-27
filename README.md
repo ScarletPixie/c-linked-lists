@@ -53,7 +53,7 @@ clear_list2(&my_list, my_custom_free_function);
 # Singly Linked Lists Functions
 
 ## void	lst_insert(t_list \*\*head, t_list \*node, size_t index)
-Receives the address of the pointer to the start of the list, the node to be inserted in the list and the index in which said node will be inserted. The function will return without doing anything in the following cases: node is null, head argument or \*head is null or if *head points to the same address as node. If the list is null or if the index is 0 *head will point to the new node, if the index is beyond the length of the list, node will be added to the end of the list.
+Receives the address of the pointer to the start of the list, the node to be inserted in the list and the index in which said node will be inserted. The function will return without doing anything in the following cases: node is null, head argument or \*head is null, node next field is not NULL,or if *head points to the same address as node. If the list is null or if the index is 0 *head will point to the new node, if the index is beyond the length of the list, node will be added to the end of the list.
 
 <br>
 
