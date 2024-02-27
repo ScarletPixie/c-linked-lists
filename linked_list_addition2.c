@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 09:42:49 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/27 10:02:14 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/02/27 10:09:22 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,12 @@ void	lst_insert2(t_list2 **head, t_list2 *node, size_t index)
 		*head = node;
 		return ;
 	}
-	while (i++ < index && curr->next)
+	while (i < index && curr->next)
+	{
+		i++;
 		curr = curr->next;
-	if (i >= index)
+	}
+	if (i == index)
 	{
 		link_node2(node, curr->next);
 		link_node2(curr->prev, node);
@@ -68,9 +71,12 @@ void	lst_extend2(t_list2 **head, size_t index, t_list2 *list)
 		*head = list;
 		return ;
 	}
-	while (i++ <= index && curr->next)
+	while (i <= index && curr->next)
+	{
+		i++;
 		curr = curr->next;
-	if (i >= index)
+	}
+	if (i == index)
 	{
 		link_node2(last_node2(list), curr->next);
 		link_node2(curr->prev, list);
