@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 09:51:20 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/04 11:11:34 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/04 13:53:49 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ t_list2	*last_node2(t_list2 *head)
 
 void	link_node2(t_list2 *node1, t_list2 *node2)
 {
+	if (node1 == node2)
+		return ;
 	if (node1)
 		node1->next = node2;
 	if (node2)
