@@ -3,10 +3,10 @@
 ```h
 typedef struct s_list2
 {
-	void			*data;
+	void		*data;
 	struct s_list2	*next;
 	struct s_list2	*prev;
-}					t_list2;
+}			t_list2;
 ```
 
 <br>
