@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 10:18:13 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/27 14:45:25 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/04 09:56:41 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,15 @@ void	ft_memcpy(void *dest, const void *source, size_t data_size)
 		dst[index] = src[index];
 		index++;
 	}
+}
+
+void	ft_swap(void **ptr1, void **ptr2)
+{
+	void	*tmp;
+
+	if (!ptr1 || !ptr2)
+		return ;
+	tmp = *ptr1;
+	*ptr1 = *ptr2;
+	*ptr2 = tmp;
 }

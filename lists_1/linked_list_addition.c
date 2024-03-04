@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 09:41:34 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/27 15:29:43 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/04 10:41:50 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	lst_append(t_list **head, t_list *node)
 	last->next = node;
 }
 
-void	lst_extend(t_list **head, size_t index, t_list *list)
+void	lst_extend(t_list **head, t_list *list, size_t index)
 {
 	size_t	i;
 	t_list	*curr;
@@ -83,52 +83,4 @@ void	lst_extend(t_list **head, size_t index, t_list *list)
 		i++;
 	}
 	curr->next = list;
-}
-
-t_list	*array_to_list(const void *arr, size_t size, size_t data_size)
-{
-	void	*data;
-	t_list	*node;
-	t_list	*head;
-
-	if (!arr || !size || !data_size)
-		return (NULL);
-	head = NULL;
-	while (size > 0)
-	{
-		if (size > 0)
-			--size;
-		data = ft_memdup(arr + (size * data_size), data_size);
-		node = new_node(data, free);
-		if (!node)
-			return (clear_list(&head, free), NULL);
-		lst_insert(&head, node, 0);
-		if (size == 0)
-			break ;
-	}
-	return (head);
-}
-
-void	*list_to_array(t_list *head, size_t data_size)
-{
-	size_t	index;
-	void	*array;
-	t_list	*tmp;
-	size_t	size;
-
-	size = lst_len(head);
-	if (!head || !size)
-		return (NULL);
-	array = malloc(data_size * size);
-	if (!array)
-		return (NULL);
-	tmp = head;
-	index = 0;
-	while (tmp)
-	{
-		ft_memcpy(array + (index * data_size), tmp->data, data_size);
-		tmp = tmp->next;
-		index++;
-	}
-	return (array);
 }
