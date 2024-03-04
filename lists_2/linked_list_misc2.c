@@ -6,13 +6,13 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 09:35:48 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/04 09:51:54 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/04 11:08:10 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked_lists.h"
 
-size_t	lst_len2(t_list2 *head)
+size_t	lst_len2(const t_list2 *head)
 {
 	size_t	size;
 
