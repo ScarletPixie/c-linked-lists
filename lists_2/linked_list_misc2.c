@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 09:35:48 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/04 11:08:10 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/04 12:00:16 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,19 @@ size_t	lst_len2(const t_list2 *head)
 		head = head->next;
 	}
 	return (size);
+}
+
+t_list2	*get_node_if2(const t_list2 *head, int (*func)(void *data))
+{
+	if (!head || !func)
+		return (NULL);
+	while (head)
+	{
+		if (func(head->data))
+			return (head);
+		head = head->next;
+	}
+	return (NULL);
 }
 
 void	lst_sort2(t_list2 *head, int (*cmp)(void *data1, void *data2))
