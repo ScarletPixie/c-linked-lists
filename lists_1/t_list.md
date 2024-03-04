@@ -3,9 +3,9 @@
 ```h
 typedef struct s_list
 {
-	void			*data;
+	void		*data;
 	struct s_list	*next;
-}					t_list;
+}			t_list;
 ```
 
 <br>
