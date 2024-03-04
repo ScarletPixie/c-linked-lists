@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 10:35:25 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/04 12:09:41 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/04 12:19:48 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 void		lst_append(t_list **head, t_list *node);
 void		lst_extend(t_list **head, t_list *list, size_t index);
 void		lst_insert(t_list **head, t_list *node, size_t index);
+void		lst_prepend(t_list **head, t_list *node);
 
 // linked_list_removal.c
 void		lst_delete(t_list **head, size_t index, void (*func)(void *data));
@@ -56,6 +57,7 @@ t_list		*arr_from_lst(const void *arr, size_t size, size_t data_size);
 void		lst_append2(t_list2 **head, t_list2 *node);
 void		lst_extend2(t_list2 **head, t_list2 *list, size_t index);
 void		lst_insert2(t_list2 **head, t_list2 *node, size_t index);
+void		lst_prepend2(t_list2 **head, t_list2 *node);
 
 // linked_list_removal2.c
 void		lst_delete2(t_list2 **head, size_t index, void (*func)(void *data));
