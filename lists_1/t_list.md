@@ -37,7 +37,7 @@ Takes as argument the address of a pointer to the start of the list, the new lis
 head or list argument is NULL or if list points to the same list as head.
 If the list is head list is empty or index is 0 *head will be set to list after proper connections. If the index is out of bounds then the list will be appended to the list pointed by *head. Beware of double free.
 
-<br>
+<br><br><br>
 
 # Removing Nodes ([linked_list_removal.c](linked_list_removal.c))
 ## void	lst_delete(t_list \*\*head, size_t index, void (\*func)(void \*data))
@@ -56,8 +56,16 @@ lst_delete(&list, NULL);
 Takes as argument the address of a pointer to the start of the list and the index at which the node will be removed. This function will have no effect if:
 head is NULL or list is empty. This function works similar to lst_delete but instead of deleting the node it will just be removed from the list and returned, the node's next field will be set to NULL and proper linking will be made. If the index is out of bounds or the arguments are invalid then the function will return NULL otherwise it will return the node at index with its next field set to NULL.
 ```c
-t_list	*node0 = lst_pop(&head, 0);
-t_list	*node10 = lst_pop(&head, 10);
+t_list	*list = NULL;
+t_list	*other_list = NULL;
+int i = 10;
+while (--i) // creates a list of size 10;
+	lst_insert(&list, new_node(ft_memdup(&i, sizeof(int)), free), 0);
+int i = 5;
+while (--i) // will remove the first 5 nodes from list and insert into other_list
+	lst_insert(&other_list, lst_pop(&list, 0), 0);
+clear_list(&list, free);
+clear_list(&other_list, free);
 ```
 
 <br>
@@ -72,7 +80,7 @@ lst_clear(&list, free);
 lst_clear(&sub_list, free);
 ```
 
-<br>
+<br><br><br>
 
 # Helper Functions ([linked_list_nodes.c](linked_list_nodes.c))
 ## t_list	\*get_node(t_list \*head, size_t index)
@@ -87,7 +95,7 @@ Takes as argument a pointer to a node and set its next field to NULL, will not d
 ## void	link_node(t_list \*node1, t_list \*node2)
 Takes as arguments two node pointers and set node1's next field to node2, will not do anything if node1 is NULL or if node1 is equal to node2.
 
-<br><br>
+<br><br><br>
 
 # Other functions ([linked_list_misc.c](linked_list_misc.c))
 ## size_t	lst_len(const t_list \*head)
@@ -103,13 +111,23 @@ If the function func returns a non zero value then the node will be returned sim
 
 ## void	lst_sort(t_list \*head, int (\*cmp)(void \*data1, void \*data2))
 Takes as argument a pointer to the start of the list and a function that will compare 2 nodes' datas. If the list is empty of cmp is NULL then nothing will be done otherwise the list will be sorted (insertion sort) in ascending order.
+```c
+int cmp(void *d1, void *d2)
+{
+	int *a = (int *)d1;
+	int *b = (int *)d2;
+
+	return (*a - *b);
+}
+lst_sort(unsorted_list, cmp);
+```
 
 <br>
 
 ## void	lst_rev(t_list \*head)
 Takes as argument a pointer to the start of the list, if list is empty nothing will be done, it inverts a list by swapping the nodes' data field.
 
-<br><br>
+<br><br><br>
 
 # List Conversions ([linked_list_creation.c](linked_list_creation.c))
 Warning, the following functions still need to be tested.
