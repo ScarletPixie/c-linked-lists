@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 09:35:48 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/04 12:00:16 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/04 12:09:14 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ size_t	lst_len2(const t_list2 *head)
 	return (size);
 }
 
-t_list2	*get_node_if2(const t_list2 *head, int (*func)(void *data))
+t_list2	*get_node_if2(t_list2 *head, int (*func)(void *data))
 {
 	if (!head || !func)
 		return (NULL);
