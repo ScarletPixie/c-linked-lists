@@ -74,7 +74,7 @@ lst_clear(&sub_list, free);
 
 <br>
 
-# Helper Functions
+# Helper Functions ([linked_list_nodes.c](linked_list_nodes.c))
 ## t_list	\*get_node(t_list \*head, size_t index)
 Takes as argument the pointer to the start of the list and returns the index-th node. If index is out of bounds, NULL is returned.
 
@@ -85,4 +85,55 @@ Takes as argument the pointer to the start of the list and returns it's first no
 Takes as argument a pointer to a node and set its next field to NULL, will not do anything if node is NULL.
 
 ## void	link_node(t_list \*node1, t_list \*node2)
-Takes as arguments two pointer to ndoes
+Takes as arguments two node pointers and set node1's next field to node2, will not do anything if node1 is NULL or if node1 is equal to node2.
+
+<br><br>
+
+# Other functions ([linked_list_misc.c](linked_list_misc.c))
+## size_t	lst_len(const t_list \*head)
+Takes as argument a pointer to the start of the list and returns how many nodes are in the list, if the list is empty it wlll return 0.
+
+<br>
+
+## t_list	\*get_node_if(t_list \*head, int (\*func)(void \*data))
+Takes as argument a pointer to the start of the list and a function to be applied to each node's data. This function will not do anything if list is empty or if func is NULL.
+If the function func returns a non zero value then the node will be returned similar to get_node. if it reaches the end of the list then NULL is returned.
+
+<br>
+
+## void	lst_sort(t_list \*head, int (\*cmp)(void \*data1, void \*data2))
+Takes as argument a pointer to the start of the list and a function that will compare 2 nodes' datas. If the list is empty of cmp is NULL then nothing will be done otherwise the list will be sorted (insertion sort) in ascending order.
+
+<br>
+
+## void	lst_rev(t_list \*head)
+Takes as argument a pointer to the start of the list, if list is empty nothing will be done, it inverts a list by swapping the nodes' data field.
+
+<br><br>
+
+# List Conversions ([linked_list_creation.c](linked_list_creation.c))
+Warning, the following functions still need to be tested.
+
+## t_list	\*lst_from_arr(cosnt void \*arr, size_t size, size_t data_size)
+Takes as argument a void array, the array size and the size of each data in the array, if any argument is equal to 0//NULL, NULL is returned. Each node's data field will recieve a copy of their respective array element. On success the new list is returned, on failure NULL is returned.
+```c
+int arr = {1, 2, 3, 4};
+t_list	*list = lst_from_arr(arr, 4, sizeof(int));
+lst_clear(&list);
+```
+
+<br>
+
+## t_list	\*arr_to_lst(void \*arr, size_t size, size_t data_size)
+The same as lst_from_arr, but array is freed.
+
+<br>
+
+## void	\*arr_from_lst(const t_list \*head, size_t data_size)
+Takes as argument a pointer to the start of a list and the data size of the node's data field. This function will not do anything if the list is empty or data_size is 0. On success a void array is returned, each index containing a node's data value, on failure NULL is returned.
+```c
+void	*arr = arr_from_list(list, sizeof(int));
+free(arr);
+```
+
+<br>

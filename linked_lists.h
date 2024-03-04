@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 10:35:25 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/04 12:19:48 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/04 14:24:54 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,9 @@ t_list		*last_node(t_list *head);
 t_list		*cut_node(t_list *node);
 
 // linked_list_creation.c
-void		*lst_to_arr(t_list **head, size_t data_size);
-void		*lst_from_arr(const t_list *head, size_t data_size);
+void		*arr_from_lst(const t_list *head, size_t data_size);
 t_list		*arr_to_lst(void *arr, size_t size, size_t data_size);
-t_list		*arr_from_lst(const void *arr, size_t size, size_t data_size);
+t_list		*lst_from_arr(const void *arr, size_t size, size_t data_size);
 
 /*****************************************************************************/
 
