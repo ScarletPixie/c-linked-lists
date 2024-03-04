@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 10:18:41 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/04 11:09:49 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/04 16:21:52 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,33 +37,7 @@ t_list2	*arr_to_list2(void *arr, size_t size, size_t data_size)
 	return (head);
 }
 
-void	*lst_to_arr2(t_list2 **head, size_t data_size)
-{
-	void	*array;
-	size_t	size;
-	size_t	index;
-	t_list2	*tmp;
-
-	if (!head || !data_size || !*head)
-		return (NULL);
-	size = lst_len2(*head);
-	array = malloc(data_size * size);
-	if (!array)
-		return (NULL);
-	tmp = *head;
-	index = 0;
-	while (*head)
-	{
-		(*head) = (*head)->next;
-		ft_memcpy(array + (index * data_size), tmp->data, data_size);
-		free(tmp);
-		tmp = *head;
-		index++;
-	}
-	return (array);
-}
-
-t_list2	*arr_from_list2(const void *arr, size_t size, size_t data_size)
+t_list2	*list_from_arr2(const void *arr, size_t size, size_t data_size)
 {
 	void	*data;
 	t_list2	*node;

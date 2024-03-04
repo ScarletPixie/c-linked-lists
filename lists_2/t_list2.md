@@ -55,7 +55,7 @@ lst_delete2(&list, NULL);
 
 ## t_list2	\*lst_pop2(t_list2 \*\*head, size_t index)
 Takes as argument the address of a pointer to the start of the list and the index at which the node will be removed. This function will have no effect if:
-head is NULL or list is empty. This function works similar to lst_delete but instead of deleting the node it will just be removed from the list and returned, the node's next field will be set to NULL and proper linking will be made. If the index is out of bounds or the arguments are invalid then the function will return NULL otherwise it will return the node at index with its next field set to NULL.
+head is NULL or list is empty. This function works similar to lst_delete but instead of deleting the node it will just be removed from the list and returned, the node's next and prev fields will be set to NULL and proper linking will be made. If the index is out of bounds or the arguments are invalid then the function will return NULL otherwise it will return the node at index with its next field set to NULL.
 ```c
 t_list2	*list = NULL;
 t_list2	*other_list = NULL;
@@ -91,7 +91,7 @@ Takes as argument the pointer to the start of the list and returns the index-th 
 Takes as argument the pointer to the start of the list and returns it's first node.
 
 ## t_list2	\*cut_node2(t_list2 \*node)
-Takes as argument a pointer to a node and set its next field to NULL, will not do anything if node is NULL.
+Takes as argument a pointer to a node and set its next an prev fields to NULL, will not do anything if node is NULL.
 
 ## void	link_node2(t_list2 \*node1, t_list2 \*node2)
 Takes as arguments two node pointers and set node1's next field to node2, will not do anything if node1 is NULL or if node1 is equal to node2.
