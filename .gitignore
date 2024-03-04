@@ -3,3 +3,5 @@ liblist.a
 a.out
 debug
 .vscode
+main.c
+main2.c
