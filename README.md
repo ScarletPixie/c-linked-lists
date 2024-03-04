@@ -6,7 +6,7 @@ This repository contains useful linked list functions. Both for singly linked li
 
 # Overview
 
-## A ([Singly Linked Lists Functions](lists\_1/t\_list.md));
-## A ([Doubly Linked Lists Functions](lists\_2/t\_list2.md));
+## [Singly Linked Lists Functions](lists\_1/t\_list.md);
+## [Doubly Linked Lists Functions](lists\_2/t\_list2.md);
 
 <br>
