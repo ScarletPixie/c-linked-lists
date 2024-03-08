@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   linked_list_removal_extra.c                        :+:      :+:    :+:   */
+/*   linked_list_removal_extra2.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 16:42:38 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/08 16:48:41 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/08 16:52:13 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,4 @@ void	lst_del_from2(t_list2 **head, t_list2 *from,
 		from = safe;
 	}
 	link_node2(tmp, safe);
-}
-
-static void	link_helper(t_list **head, t_list *curr, t_list **prev)
-{
-	if (curr == *head)
-	{
-		*head = curr->next;
-		*prev = *head;
-	}
-	link_node(*prev, curr->next);
 }
