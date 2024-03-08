@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 09:58:03 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/08 12:09:30 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/08 12:53:47 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,25 +45,24 @@ void	lst_del_from(t_list **head, t_list *from,
 {
 	t_list	*tmp;
 	t_list	*safe;
-	t_list	*prev;
 
 	if (!head || !*head || !from)
 		return ;
 	tmp = *head;
-	prev = *head;
-	while (tmp && tmp != from)
-	{
-		if (prev->next == tmp)
-			prev = prev->next;
+	safe = *head;
+	while (tmp && tmp != from && tmp->next != from)
 		tmp = tmp->next;
-	}
-	while (tmp && tmp != to)
+	if (!tmp)
+		return ;
+	if (tmp == from)
+		tmp = NULL;
+	while (from && from != to)
 	{
-		safe = tmp->next;
-		if (*head == tmp)
+		safe = from->next;
+		if (*head == from)
 			*head = safe;
-		del_node(tmp, f);
-		tmp = safe;
+		del_node(from, f);
+		from = safe;
 	}
-	link_node(prev, safe);
+	link_node(tmp, safe);
 }

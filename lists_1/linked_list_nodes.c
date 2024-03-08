@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 09:46:35 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/04 13:53:32 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/08 12:53:16 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ t_list	*cut_node(t_list *node)
 
 void	link_node(t_list *node1, t_list *node2)
 {
-	if (node1 || node1 == node2)
+	if (!node1 || node1 == node2)
 		return ;
 	node1->next = node2;
 }
