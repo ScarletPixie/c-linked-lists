@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 10:35:25 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/08 16:49:39 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/08 16:51:01 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ t_list2		*lst_slice2(t_list2 **head, size_t start, size_t size);
 void		lst_del_if2(t_list2 **head,
 				int (*cmp)(void *d), void (*del)(void *d));
 
-void	lst_del_from2(t_list2 **head, t_list2 *from,
-			t_list2 *to, void (*f)(void *dt));
+void		lst_del_from2(t_list2 **head, t_list2 *from,
+				t_list2 *to, void (*f)(void *dt));
 
 // linked_list_nodes2.c
 void		link_node2(t_list2 *node1, t_list2 *node2);
