@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 09:40:36 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/05 12:58:05 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/08 09:55:21 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	lst_sort(t_list *head, int (*cmp)(void *data1, void *data2))
 		while (inner)
 		{
 			if (cmp(outer->data, inner->data) > 0)
-				ft_swap(&outer->data, &inner->data);
+				lst_ft_swap(&outer->data, &inner->data);
 			inner = inner->next;
 		}
 		outer = outer->next;
@@ -78,7 +78,7 @@ void	lst_rev(t_list *head)
 	while (i < len / 2)
 	{
 		tmp2 = get_node(head, lst_len(head) - 1 - i);
-		ft_swap(&tmp->data, &tmp2->data);
+		lst_ft_swap(&tmp->data, &tmp2->data);
 		tmp = tmp->next;
 		i++;
 	}

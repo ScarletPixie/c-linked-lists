@@ -1,14 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   linked_list_removal_extra.c                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/08 09:58:03 by paulhenr          #+#    #+#             */
+/*   Updated: 2024/03/08 09:58:19 by paulhenr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "linked_lists.h"
 
-static void	remove(t_list *node, void (*del)(void *dt));
-
-void	lst_remove_if(t_list **head, int (*cmp)(void *dt), void (*del)(void *dt))
+void	lst_del_if(t_list **head, int (*cmp)(void *dt), void (*del)(void *dt))
 {
-	t_list	*prev
+	t_list	*prev;
 	t_list	*tmp;
 	t_list	*safe;
 
-	if (!head || !*head || !func)
+	if (!head || !*head || !cmp)
 		return ;
 	tmp = *head;
 	prev = *head;
@@ -19,10 +29,9 @@ void	lst_remove_if(t_list **head, int (*cmp)(void *dt), void (*del)(void *dt))
 			prev = prev->next;
 		if (cmp(tmp->data))
 		{
-			if (tmp = *head)
+			if (tmp == *head)
 				*head = safe;
-			del(tmp->data);
-			free(tmp);
+			del_node(tmp, del);
 			link_node(prev, safe);
 			tmp = prev;
 		}
@@ -31,7 +40,8 @@ void	lst_remove_if(t_list **head, int (*cmp)(void *dt), void (*del)(void *dt))
 	}
 }
 
-void	lst_del_from(t_list **head, t_list *from, t_list *to, void (*f)(void *dt))
+void	lst_del_from(t_list **head, t_list *from,
+			t_list *to, void (*f)(void *dt))
 {
 	t_list	*safe;
 	t_list	*prev;
@@ -53,8 +63,7 @@ void	lst_del_from(t_list **head, t_list *from, t_list *to, void (*f)(void *dt))
 		safe = tmp->next;
 		if (*head == tmp)
 			*head = safe;
-		f(tmp->data);
-		free(tmp);
+		del_node(tmp, f);
 		tmp = safe;
 	}
 	prev->next = safe;
