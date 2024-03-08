@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 10:35:25 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/08 10:44:03 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/08 16:49:39 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,13 @@ void		lst_delete2(t_list2 **head, size_t index, void (*func)(void *data));
 t_list2		*lst_pop2(t_list2 **head, size_t index);
 t_list2		*lst_slice2(t_list2 **head, size_t start, size_t size);
 
+// linked_list_removal_extra2.c
+void		lst_del_if2(t_list2 **head,
+				int (*cmp)(void *d), void (*del)(void *d));
+
+void	lst_del_from2(t_list2 **head, t_list2 *from,
+			t_list2 *to, void (*f)(void *dt));
+
 // linked_list_nodes2.c
 void		link_node2(t_list2 *node1, t_list2 *node2);
 t_list2		*first_node(t_list2 *last);
@@ -90,6 +97,9 @@ void		lst_rev2(t_list2 *head);
 void		lst_sort2(t_list2 *head, int (*cmp)(void *data1, void *data2));
 size_t		lst_len2(const t_list2 *head);
 t_list2		*get_node_if2(t_list2 *head, int (*func)(void *data));
+
+// linked_list_helper2.c
+void		del_node2(t_list2 *node, void (*del)(void *data));
 
 /*****************************************************************************/
 

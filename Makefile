@@ -17,7 +17,8 @@ L1_OBJS	=	${addprefix ${L1_PATH}, ${L1_SRCS:.c=.o}}
 # doubly linked list
 L2_PATH	=	./lists_2/
 L2_SRCS	=	linked_list_addition2.c linked_list_creation2.c linked_list_misc2.c \
-			linked_list_nodes2.c linked_list_removal2.c \
+			linked_list_nodes2.c linked_list_removal2.c linked_list_removal_extra2.c \
+			linked_list_helper2.c \
 
 L2_OBJS	=	${addprefix ${L2_PATH}, ${L2_SRCS:.c=.o}}
 
