@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 10:18:41 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/07 16:52:12 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/08 09:54:56 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_list2	*arr_to_list2(void *arr, size_t size, size_t data_size)
 	{
 		if (size > 0)
 			--size;
-		data = ft_memdup(arr + (size * data_size), data_size);
+		data = lst_ft_memdup(arr + (size * data_size), data_size);
 		node = new_node2(data, free);
 		if (!node)
 			return (lst_clear2(&head, free), NULL);
@@ -50,7 +50,7 @@ t_list2	*list_from_arr2(const void *arr, size_t size, size_t data_size)
 	{
 		if (size > 0)
 			--size;
-		data = ft_memdup(arr + (size * data_size), data_size);
+		data = lst_ft_memdup(arr + (size * data_size), data_size);
 		node = new_node2(data, free);
 		if (!node)
 			return (lst_clear2(&head, free), NULL);
@@ -78,7 +78,7 @@ void	*lst_from_arr2(const t_list2 *head, size_t data_size)
 	index = 0;
 	while (tmp)
 	{
-		ft_memcpy(array + (index * data_size), tmp->data, data_size);
+		lst_ft_memcpy(array + (index * data_size), tmp->data, data_size);
 		tmp = tmp->next;
 		index++;
 	}
