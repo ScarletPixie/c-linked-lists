@@ -6,15 +6,15 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 10:35:25 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/08 10:07:20 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/08 10:44:03 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LINKED_LISTS_H
 # define LINKED_LISTS_H
 
-# include <stdlib.h>
 # include "typedefs.h"
+# include <stdlib.h>
 
 /*****************************************************************************/
 // SINGLY LINKED LISTS
