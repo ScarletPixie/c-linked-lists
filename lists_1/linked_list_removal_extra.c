@@ -6,17 +6,18 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 09:58:03 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/08 12:53:47 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/08 13:37:04 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked_lists.h"
 
+static void	link_helper(t_list **head, t_list *curr, t_list **prev);
+
 void	lst_del_if(t_list **head, int (*cmp)(void *dt), void (*del)(void *dt))
 {
 	t_list	*prev;
 	t_list	*tmp;
-	t_list	*safe;
 
 	if (!head || !*head || !cmp)
 		return ;
@@ -24,19 +25,18 @@ void	lst_del_if(t_list **head, int (*cmp)(void *dt), void (*del)(void *dt))
 	prev = *head;
 	while (tmp)
 	{
-		safe = tmp->next;
-		if (prev->next == tmp)
-			prev = prev->next;
 		if (cmp(tmp->data))
 		{
-			if (tmp == *head)
-				*head = safe;
+			link_helper(head, tmp, &prev);
 			del_node(tmp, del);
-			link_node(prev, safe);
 			tmp = prev;
 		}
 		else
+		{
+			if (prev->next == tmp)
+				prev = prev->next;
 			tmp = tmp->next;
+		}
 	}
 }
 
@@ -65,4 +65,14 @@ void	lst_del_from(t_list **head, t_list *from,
 		from = safe;
 	}
 	link_node(tmp, safe);
+}
+
+static void	link_helper(t_list **head, t_list *curr, t_list **prev)
+{
+	if (curr == *head)
+	{
+		*head = curr->next;
+		*prev = *head;
+	}
+	link_node(*prev, curr->next);
 }
