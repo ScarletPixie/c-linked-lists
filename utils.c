@@ -6,13 +6,13 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 10:18:13 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/04 09:56:41 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/08 10:02:14 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked_lists.h"
 
-void	*ft_memdup(const void *data, size_t data_size)
+void	*lst_ft_memdup(const void *data, size_t data_size)
 {
 	size_t			i;
 	unsigned char	*dup;
@@ -33,7 +33,7 @@ void	*ft_memdup(const void *data, size_t data_size)
 	return ((void *)dup);
 }
 
-void	ft_memcpy(void *dest, const void *source, size_t data_size)
+void	lst_ft_memcpy(void *dest, const void *source, size_t data_size)
 {
 	size_t			index;
 	unsigned char	*dst;
@@ -51,7 +51,7 @@ void	ft_memcpy(void *dest, const void *source, size_t data_size)
 	}
 }
 
-void	ft_swap(void **ptr1, void **ptr2)
+void	lst_ft_swap(void **ptr1, void **ptr2)
 {
 	void	*tmp;
 
