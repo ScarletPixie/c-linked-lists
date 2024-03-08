@@ -6,7 +6,9 @@ INCLUDE	=	.
 # singly linked list
 L1_PATH	=	./lists_1/
 L1_SRCS	=	linked_list_addition.c linked_list_creation.c linked_list_misc.c \
-			linked_list_nodes.c linked_list_removal.c
+			linked_list_nodes.c linked_list_removal.c linked_list_removal_extra.c \
+			linked_list_helper.c
+
 L1_OBJS	=	${addprefix ${L1_PATH}, ${L1_SRCS:.c=.o}}
 #------------------------------------------------------------------------------#
 
