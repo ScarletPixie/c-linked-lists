@@ -67,6 +67,24 @@ void	lst_del_from(t_list **head, t_list *from,
 	link_node(tmp, safe);
 }
 
+void	lst_del_node(t_list **head, t_list *node, void (*del)(void *data))
+{
+	t_list	*tmp;
+
+	if (!head || !*head | !node)
+		return ;
+	tmp = *head;
+	while (tmp && tmp != node && tmp->next != node)
+		tmp = tmp->next;
+	if (!tmp)
+		return ;
+	if (tmp == *head)
+		*head = tmp->next;
+	else
+		link_node(tmp, node->next);
+	del_node(tmp, del);
+}
+
 static void	link_helper(t_list **head, t_list *curr, t_list **prev)
 {
 	if (curr == *head)

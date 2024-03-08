@@ -62,3 +62,21 @@ void	lst_del_from2(t_list2 **head, t_list2 *from,
 	}
 	link_node2(tmp, safe);
 }
+
+void    lst_del_node2(t_list2 **head, t_list2 *node, void (*del)(void *dt))
+{
+	t_list2	*tmp;
+
+	if (!head || !*head || !node)
+		return ;
+	tmp = *head;
+	while (tmp && tmp != node && tmp->next != node)
+		tmp = tmp->next;
+	if (!tmp)
+		return ;
+	if (tmp = *head)
+		*head = tmp->next;
+	link_node2(tmp->prev, node->next);
+	del_node2(tmp, del);
+}
+
