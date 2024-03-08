@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 10:35:25 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/08 10:02:31 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/08 10:07:20 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ t_list		*t_list_from_data(void *data);
 t_list2		*t_list2_from_data(void *data);
 
 // utils.c
-void		*ft_memdup(const void *data, size_t data_size);
+void		*lst_ft_memdup(const void *data, size_t data_size);
 void		lst_ft_memcpy(void *dest, const void *source, size_t data_size);
 void		lst_ft_swap(void **ptr1, void **ptr2);
 
