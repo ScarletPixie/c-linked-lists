@@ -74,7 +74,7 @@ void    lst_del_node2(t_list2 **head, t_list2 *node, void (*del)(void *dt))
 		tmp = tmp->next;
 	if (!tmp)
 		return ;
-	if (tmp = *head)
+	if (tmp == *head)
 		*head = tmp->next;
 	link_node2(tmp->prev, node->next);
 	del_node2(tmp, del);
