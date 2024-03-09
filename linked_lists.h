@@ -110,16 +110,6 @@ void		del_node2(t_list2 *node, void (*del)(void *data));
 /*****************************************************************************/
 // OTHER
 
-// get_data.c / get_data_extra.c
-int			*int_from_data(void *data);
-char		*str_from_data(void *data);
-long		*long_from_data(void *data);
-float		*float_from_data(void *data);
-double		*double_from_data(void *data);
-size_t		*zu_from_data(void *data);
-t_list		*t_list_from_data(void *data);
-t_list2		*t_list2_from_data(void *data);
-
 // utils.c
 void		*lst_ft_memdup(const void *data, size_t data_size);
 void		lst_ft_memcpy(void *dest, const void *source, size_t data_size);
