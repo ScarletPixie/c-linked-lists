@@ -27,7 +27,7 @@ L2_OBJS	=	${addprefix ${L2_PATH}, ${L2_SRCS:.c=.o}}
 
 #------------------------------------------------------------------------------#
 # other
-COMMON_SRCS	=	structs.c utils.c get_data.c get_data_extra.c
+COMMON_SRCS	=	structs.c utils.c
 COMMON_OBJS	=	${COMMON_SRCS:.c=.o}
 #------------------------------------------------------------------------------#
 
