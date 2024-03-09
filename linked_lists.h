@@ -82,7 +82,7 @@ void		lst_del_if2(t_list2 **head,
 void		lst_del_from2(t_list2 **head, t_list2 *from,
 				t_list2 *to, void (*f)(void *dt));
 
-void		lst_del_node(t_list2 **head, t_list2 *node, void (*del)(void *dt));
+void		lst_del_node2(t_list2 **head, t_list2 *node, void (*del)(void *dt));
 
 // linked_list_nodes2.c
 void		link_node2(t_list2 *node1, t_list2 *node2);
