@@ -1,6 +1,6 @@
 NAME	=	liblist.a
 CFLAGS	=	-Wall -Wextra -Werror
-INCLUDE	=	./
+INCLUDE	=	./include
 
 #------------------------------------------------------------------------------#
 # singly linked list
