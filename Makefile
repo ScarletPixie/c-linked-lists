@@ -6,8 +6,7 @@ INCLUDE	=	./include
 # singly linked list
 L1_PATH	=	./lists_1/
 L1_SRCS	=	linked_list_addition.c linked_list_creation.c linked_list_misc.c \
-			linked_list_nodes.c linked_list_removal.c linked_list_removal_extra.c \
-			linked_list_helper.c \
+			linked_list_nodes.c linked_list_removal.c linked_list_removal_extra.c
 
 L1_OBJS	=	${addprefix ${L1_PATH}, ${L1_SRCS:.c=.o}}
 
@@ -17,8 +16,7 @@ L1_OBJS	=	${addprefix ${L1_PATH}, ${L1_SRCS:.c=.o}}
 # doubly linked list
 L2_PATH	=	./lists_2/
 L2_SRCS	=	linked_list_addition2.c linked_list_creation2.c linked_list_misc2.c \
-			linked_list_nodes2.c linked_list_removal2.c linked_list_removal_extra2.c \
-			linked_list_helper2.c \
+			linked_list_nodes2.c linked_list_removal2.c linked_list_removal_extra2.c
 
 L2_OBJS	=	${addprefix ${L2_PATH}, ${L2_SRCS:.c=.o}}
 
