@@ -185,10 +185,20 @@ Takes a pointer to the start of the list and a function that will be applied to 
 ## t_list2	\*new_node2(void \*data, void (\*failsafe)(void \*data))
 Creates a new node and assign the new node's data to data argument, if the memory allocation for the new node fails then the failsafe is called on the data provided.
 
+<br>
+
 ## t_list2	\*new_list2(size_t size, void \*(\*gen)(void), void (\*gen_failsafe)(void \*dt))
 Creates a list of size size, each node's data is assigned to the return of the function gen, if no gen function is provided then NULL is assingned to each node's data.
 
+<br>
+
 ## void	lst_foreach2(t_list2 \*head, void (\*func)(t_list2 \*node))
 Applies function func to each node in the list. Won't do anything if list or func is NULL.
+
+<br>
+
+## t_list2	\*lst_map(t_list2 \*head, t_list2 \*(\*func)(void \*dt))
+Makes a new linked list with the nodes being the return of the function func.
+Takes as argument a pointer to the start of the list, if head or func is empty it will return NULL. if the func returns NULL in the middle of the lst_map function it will return the new list with all nodes so far.
 
 <br><br><br>
