@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 16:42:38 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/08 16:52:13 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/15 09:55:00 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	lst_del_from2(t_list2 **head, t_list2 *from,
 	link_node2(tmp, safe);
 }
 
-void    lst_del_node2(t_list2 **head, t_list2 *node, void (*del)(void *dt))
+void	lst_del_node2(t_list2 **head, t_list2 *node, void (*del)(void *dt))
 {
 	t_list2	*tmp;
 
@@ -79,4 +79,3 @@ void    lst_del_node2(t_list2 **head, t_list2 *node, void (*del)(void *dt))
 	link_node2(tmp->prev, node->next);
 	del_node2(tmp, del);
 }
-

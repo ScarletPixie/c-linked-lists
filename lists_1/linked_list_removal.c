@@ -6,23 +6,38 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:01:59 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/26 16:33:23 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/15 09:49:50 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked_lists.h"
 
-static void	del_func(t_list **head, size_t index, void (*func)(void *data));
-static void	del_no_func(t_list **head, size_t index);
-
-void	lst_delete(t_list **head, size_t index, void (*func)(void *data))
+void	lst_del_at(t_list **head, size_t index, void (*del)(void *data))
 {
+	t_list	*curr;
+	t_list	*prev;
+	size_t	i;
+
+	i = 0;
+	prev = *head;
+	curr = *head;
 	if (!head || !*head)
 		return ;
-	if (func)
-		del_func(head, index, func);
-	else
-		del_no_func(head, index);
+	while (curr)
+	{
+		if (i == index)
+		{
+			prev->next = curr->next;
+			if (index == 0)
+				*head = curr->next;
+			del_node(curr, del);
+			return ;
+		}
+		curr = curr->next;
+		if (i > 0)
+			prev = prev->next;
+		i++;
+	}
 }
 
 t_list	*lst_pop(t_list **head, size_t index)
@@ -82,55 +97,18 @@ t_list	*lst_slice(t_list **head, size_t start, size_t size)
 	return (sub_list);
 }
 
-static void	del_func(t_list **head, size_t index, void (*func)(void *data))
+void	lst_destroy(t_list *head, void (*del)(void *data))
 {
-	t_list	*curr;
-	t_list	*prev;
-	size_t	i;
+	t_list	*tmp;
 
-	i = 0;
-	prev = *head;
-	curr = *head;
-	while (curr)
+	if (!head)
+		return ;
+	tmp = head;
+	while (tmp)
 	{
-		if (i == index)
-		{
-			prev->next = curr->next;
-			if (index == 0)
-				*head = curr->next;
-			func(curr->data);
-			free(curr);
-			return ;
-		}
-		curr = curr->next;
-		if (i > 0)
-			prev = prev->next;
-		i++;
+		tmp = head->next;
+		del_node(head, del);
+		head = tmp;
 	}
-}
-
-static void	del_no_func(t_list **head, size_t index)
-{
-	t_list	*curr;
-	t_list	*prev;
-	size_t	i;
-
-	i = 0;
-	prev = *head;
-	curr = *head;
-	while (curr)
-	{
-		if (i == index)
-		{
-			prev->next = curr->next;
-			if (index == 0)
-				*head = curr->next;
-			free(curr);
-			return ;
-		}
-		curr = curr->next;
-		if (i > 0)
-			prev = prev->next;
-		i++;
-	}
+	return ;
 }

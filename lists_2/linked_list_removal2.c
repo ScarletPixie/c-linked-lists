@@ -6,23 +6,35 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 10:02:50 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/02/27 14:20:50 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/15 09:51:11 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked_lists.h"
 
-static void	del_func(t_list2 **head, size_t index, void (*func)(void *data));
-static void	del_no_func(t_list2 **head, size_t index);
-
-void	lst_delete2(t_list2 **head, size_t index, void (*func)(void *data))
+void	lst_del_at2(t_list2 **head, size_t index, void (*del)(void *data))
 {
+	size_t	i;
+	t_list2	*curr;
+
+	i = 0;
+	curr = *head;
 	if (!head || !*head)
 		return ;
-	if (func)
-		del_func(head, index, func);
-	else
-		del_no_func(head, index);
+	if (index == 0)
+		*head = (*head)->next;
+	while (i < index && curr->next)
+	{
+		i++;
+		curr = curr->next;
+	}
+	if (!curr)
+		return ;
+	if (i == index)
+	{
+		link_node2(curr->prev, curr->next);
+		del_node2(curr, del);
+	}
 }
 
 t_list2	*lst_pop2(t_list2 **head, size_t index)
@@ -71,45 +83,18 @@ t_list2	*lst_slice2(t_list2 **head, size_t start, size_t size)
 	return (sub_list);
 }
 
-static void	del_func(t_list2 **head, size_t index, void (*func)(void *data))
+void	lst_destroy2(t_list2 *head, void (*del)(void *data))
 {
-	size_t	i;
-	t_list2	*curr;
+	t_list2	*tmp;
 
-	i = 0;
-	curr = *head;
-	if (index == 0)
-		*head = (*head)->next;
-	while (i < index && curr->next)
+	if (!head)
+		return ;
+	tmp = head;
+	while (tmp)
 	{
-		i++;
-		curr = curr->next;
+		tmp = head->next;
+		del_node2(head, del);
+		head = tmp;
 	}
-	if (i == index)
-	{
-		link_node2(curr->prev, curr->next);
-		func(curr->data);
-		free(curr);
-	}
-}
-
-static void	del_no_func(t_list2 **head, size_t index)
-{
-	size_t	i;
-	t_list2	*curr;
-
-	i = 0;
-	curr = *head;
-	if (index == 0)
-		*head = (*head)->next;
-	while (i < index && curr->next)
-	{
-		i++;
-		curr = curr->next;
-	}
-	if (i == index)
-	{
-		link_node2(curr->prev, curr->next);
-		free(curr);
-	}
+	return ;
 }
