@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 09:42:49 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/04 12:19:23 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/15 12:30:25 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,25 @@ void	lst_insert2(t_list2 **head, t_list2 *node, size_t index)
 		return ;
 	}
 	link_node2(curr, node);
+}
+
+void	lst_insert_next2(t_list2 **head, t_list2 *new_node, t_list2 *node)
+{
+	t_list2	*tmp;
+
+	if (!head || !new_node || new_node->next || new_node->prev
+		|| (!*head && node) || new_node == *head)
+		return ;
+	if (!*head)
+	{
+		*head = new_node;
+		return ;
+	}
+	tmp = *head;
+	while (tmp != node && tmp->next && tmp->next != node)
+		tmp = tmp->next;
+	link_node2(new_node, tmp->next);
+	link_node2(tmp, new_node);
 }
 
 void	lst_append2(t_list2 **head, t_list2 *node)
