@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 09:35:48 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/08 10:08:40 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/15 14:02:35 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,16 @@ void	lst_rev2(t_list2 *head)
 		last = last->prev;
 		if (size == 0)
 			break ;
+	}
+}
+
+void	lst_print2(t_list2 *head, void (*print_data)(void *dt))
+{
+	if (!print_data || !head)
+		return ;
+	while (head)
+	{
+		print_data(head->data);
+		head = head->next;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 10:35:25 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/15 13:21:32 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/15 14:05:11 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void		lst_del_node(t_list **head, t_list *node, void (*del)(void *data));
 // linked_list_misc.c
 void		lst_sort(t_list *head, int (*cmp)(void *data1, void *data2));
 void		lst_rev(t_list *head);
+void		lst_print(t_list *head, void (*print_data)(void *dt));
 size_t		lst_len(const t_list *head);
 t_list		*get_node_if(t_list *head, int (*func)(void *data));
 
@@ -104,6 +105,7 @@ t_list2		*new_list2(size_t size, void *(*gen)(void),
 // linked_list_misc2.c
 void		lst_rev2(t_list2 *head);
 void		lst_sort2(t_list2 *head, int (*cmp)(void *data1, void *data2));
+void		lst_print2(t_list2 *head, void (*print_data)(void *dt));
 size_t		lst_len2(const t_list2 *head);
 t_list2		*get_node_if2(t_list2 *head, int (*func)(void *data));
 

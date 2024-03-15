@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 09:40:36 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/08 09:55:21 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/15 14:02:46 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,16 @@ void	lst_rev(t_list *head)
 		lst_ft_swap(&tmp->data, &tmp2->data);
 		tmp = tmp->next;
 		i++;
+	}
+}
+
+void	lst_print(t_list *head, void (*print_data)(void *dt))
+{
+	if (!print_data || !head)
+		return ;
+	while (head)
+	{
+		print_data(head->data);
+		head = head->next;
 	}
 }

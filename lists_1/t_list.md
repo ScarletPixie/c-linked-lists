@@ -162,6 +162,9 @@ lst_sort(unsorted_list, cmp);
 ## void	lst_rev(t_list \*head)
 Takes as argument a pointer to the start of the list, if list is empty nothing will be done, it inverts a list by swapping the nodes' data field.
 
+## void	lst_print(t_list \*head, void (\*print_data)(void \*dt))
+Takes a pointer to the start of the list and a function that will be applied to each node's data.
+
 <br><br><br>
 
 # List Creation ([linked_list_creation.c](linked_list_creation.c))

@@ -163,6 +163,9 @@ lst_sort2(unsorted_list, cmp);
 ## void	lst_rev2(t_list2 \*head)
 Takes as argument a pointer to the start of the list, if list is empty nothing will be done, it inverts a list by swapping the nodes' data field.
 
+## void	lst_print2(t_list2 \*head, void (\*print_data)(void \*dt))
+Takes a pointer to the start of the list and a function that will be applied to each node's data.
+
 <br><br><br>
 
 # List Conversions ([linked_list_creation2.c](linked_list_creation2.c))
