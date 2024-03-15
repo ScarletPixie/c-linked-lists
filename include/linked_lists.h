@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 10:35:25 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/15 12:31:28 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/15 12:37:32 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ t_list		*cut_node(t_list *node);
 
 // linked_list_creation.c
 void		*arr_from_lst(const t_list *head, size_t data_size);
+t_list		*new_node(void *data, void (*failsafe)(void *data));
 t_list		*arr_to_lst(void *arr, size_t size, size_t data_size);
 t_list		*lst_from_arr(const void *arr, size_t size, size_t data_size);
 
@@ -97,6 +98,7 @@ t_list2		*last_node2(t_list2 *head);
 
 // linked_list_creation2.c
 void		*lst_from_arr2(const t_list2 *head, size_t data_size);
+t_list2		*new_node2(void *data, void (*failsafe)(void *data));
 t_list2		*arr_to_list2(void *arr, size_t size, size_t data_size);
 t_list2		*list_from_arr2(const void *arr, size_t size, size_t data_size);
 
