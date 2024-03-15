@@ -2,7 +2,7 @@
 This repository contains useful linked list functions. Both for singly linked lists and doubly linked lists.
 
 ### There's still work to be done in this repository, if you find any error please open an issue.
-<br><br><br><br>
+<br><br>
 
 # Overview
 
