@@ -168,7 +168,7 @@ Takes a pointer to the start of the list and a function that will be applied to 
 
 <br><br><br>
 
-# List Conversions ([linked_list_creation2.c](linked_list_creation2.c))
+# List Creation ([linked_list_creation2.c](linked_list_creation2.c))
 ## t_list2	\*new_node2(void \*data, void (\*failsafe)(void \*data))
 Creates a new node and assign the new node's data to data argument, if the memory allocation for the new node fails then the failsafe is called on the data provided.
 
