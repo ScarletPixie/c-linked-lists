@@ -60,6 +60,8 @@ fclean: clean
 
 mclean: all clean
 
+dclean: debug clean
+
 re: fclean all
 
 
