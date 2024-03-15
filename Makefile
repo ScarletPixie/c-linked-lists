@@ -38,9 +38,17 @@ all:		$(NAME)
 
 debug:		$(DEBUG_NAME)
 
+mclean: all clean
+
+dclean: debug clean
+
 $(NAME):	$(OBJS)
 	ar -rc $(NAME) $(OBJS)
 	ranlib $(NAME)
+
+$(DEBUG_NAME): $(DEBUG_OBJS)
+	ar -rc $(DEBUG_NAME) $(DEBUG_OBJS)
+	ranlib $(DEBUG_NAME)
 
 %.o:		%.c
 	$(CC) -I$(INCLUDE) $(CFLAGS) -c $< -o $@
@@ -48,21 +56,12 @@ $(NAME):	$(OBJS)
 %_debug.o:	%.c
 	$(CC) -I$(INCLUDE) $(DEBUG_FLAGS) -c $< -o $@
 
-$(DEBUG_NAME): $(DEBUG_OBJS)
-	ar -rc $(DEBUG_NAME) $(DEBUG_OBJS)
-	ranlib $(DEBUG_NAME)
-	
 clean:
 	rm -f $(OBJS) $(DEBUG_OBJS)
 
 fclean: clean
 	rm -f $(NAME) $(DEBUG_NAME)
 
-mclean: all clean
-
-dclean: debug clean
-
 re: fclean all
-
 
 .PHONY: all clean fclean mclean re
