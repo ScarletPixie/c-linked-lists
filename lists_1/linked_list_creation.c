@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 10:04:05 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/15 09:35:56 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/15 10:04:44 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_list	*arr_to_lst(void *arr, size_t size, size_t data_size)
 		data = lst_ft_memdup(arr + (size * data_size), data_size);
 		node = new_node(data, free);
 		if (!node)
-			return (lst_clear(&head, free), NULL);
+			return (lst_destroy(head, free), NULL);
 		lst_insert(&head, node, 0);
 		if (size == 0)
 			break ;
@@ -69,7 +69,7 @@ t_list	*lst_from_arr(const void *arr, size_t size, size_t data_size)
 		data = lst_ft_memdup(arr + (size * data_size), data_size);
 		node = new_node(data, free);
 		if (!node)
-			return (lst_clear(&head, free), NULL);
+			return (lst_destroy(head, free), NULL);
 		lst_insert(&head, node, 0);
 		if (size == 0)
 			break ;
