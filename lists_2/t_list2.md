@@ -13,36 +13,40 @@ typedef struct s_list2
 
 # Adding Nodes ([linked_list_addition2.c](linked_list_addition.c))
 ## void	lst_insert2(t_list2 \*\*head, t_list2 \*node, size_t index);
-Takes as argument the address of a pointer to the start of the list, a node to be added and the index at which this node will be added. This function will not do anything if:
+Takes a double pointer to the start of a list, a node to be added and the index at which this node will be added. This function will not do anything if:
 node or head argument is NULL, if the node's next field is NOT NULL or if node pointer is the same as the start of the list.
 If the the list is empty, then *head will be set to node. If the index is out of bounds then the new node will be added to the end of the list
 
 <br>
 
+## void	lst_insert_next2(t_list2 \*\*head, t_list2 \*new_node, t_list2 \*node)
+Takes a double pointer to the start of a list, the new node to be added and the node at which the new node will be appended to. This function will not do anything if:
+head or new_node is NULL, new_node's next field is not NULL, list is empty but node is not NULL or if new_node is the first node in the list pointed by head. The new node is put after the node specified by the node argument. It's not possible to insert the new node at the beginning.
+
 ## void	lst_append2(t_list2 \*\*head, t_list2 \*node)
-Takes as argument the address of a pointer to the start of the list and the new node or list to be added at the end. This function will not do anything if:
+Takes a double pointer to the start of a list and the new node or list to be added at the end. This function will not do anything if:
 node or head argument is null or if node points to the same address as the start of the list.
 If the list is empty *head will be set to node.
 
 <br>
 
 ## void	lst_prepend2(t_list2 \*\*head, t_list2 \*node)
-Takes as argument the address of a pointer to the start of the list and the new node or list to be added at the beginning of the list. This function will not do anything if:
+Takes a double pointer to the start of a list and the new node or list to be added at the beginning of the list. This function will not do anything if:
 node or head argument is null or if node points to the same list as head.
 This function will search for the last node in node argument and connect it to the list then head will be updated to point to the new start of the list. If the list is empty *head will be set to node.
 
 <br>
 
 ## void	lst_extend2(t_list2 \*\*head, t_list2 \*list, size_t index)
-Takes as argument the address of a pointer to the start of the list, the new list to be added and the index at which the list will be added. This function will not do anything if:
+Takes a double pointer to the start of a list, the new list to be added and the index at which the list will be added. This function will not do anything if:
 head or list argument is NULL or if list points to the same list as head.
 If the list is head list is empty or index is 0 *head will be set to list after proper connections. If the index is out of bounds then the list will be appended to the list pointed by *head. Beware of double free.
 
 <br><br><br>
 
 # Removing Nodes ([linked_list_removal2.c](linked_list_removal.c))
-## void	lst_delete2(t_list2 \*\*head, size_t index, void (\*func)(void \*data))
-Takes as argument the address of a pointer to the start of the list, the index at which the node will be deleted and a function to be applied to the node's data field. This function will not do anything if:
+## void	lst_del_at2(t_list2 \*\*head, size_t index, void (\*func)(void \*data))
+Takes a double pointer to the start of a list, the index at which the node will be deleted and a function to be applied to the node's data field. This function will not do anything if:
 head argument is NULL or the list is empty.
 if no function is provided then only the node will be freed, if index is 0 *head will be set to the next node.
 ```c
@@ -54,7 +58,7 @@ lst_delete2(&list, NULL);
 <br>
 
 ## t_list2	\*lst_pop2(t_list2 \*\*head, size_t index)
-Takes as argument the address of a pointer to the start of the list and the index at which the node will be removed. This function will have no effect if:
+Takes a double pointer to the start of a list and the index at which the node will be removed. This function will have no effect if:
 head is NULL or list is empty. This function works similar to lst_delete but instead of deleting the node it will just be removed from the list and returned, the node's next and prev fields will be set to NULL and proper linking will be made. If the index is out of bounds or the arguments are invalid then the function will return NULL otherwise it will return the node at index with its next field set to NULL.
 ```c
 t_list2	*list = NULL;
@@ -72,7 +76,7 @@ lst_clear2(&other_list, free);
 <br>
 
 ## t_list2	\*lst_slice2(t_list2 \*\*head, size_t start, size_t size)
-Takes as argument the address of a pointer to the start of the list, the start index at which the list will be cut and how many nodes will be cut from start index. This function will have no effect if:
+Takes a double pointer to the start of a list, the start index at which the list will be cut and how many nodes will be cut from start index. This function will have no effect if:
 head is NULL, list is empty or start index is out of bounds.
 This function works similarly to lst_pop but instead of poping one node this function "pops" (size - start) nodes. It will return a new list or NULL on failure
 ```c
@@ -80,6 +84,37 @@ t_list2	*sub_list = lst_slice2(&list, 0, 5);
 lst_clear2(&list, free);
 lst_clear2(&sub_list, free);
 ```
+
+<br>
+
+## void	del_node2(t_list2 \*node, void (\*del)(void \*data))
+Deletes a node and apply del function to the node's data, if node is NULL nothing is done, if del is NULL then it will simply free the node.
+
+<br>
+
+## t_list	\*lst_destroy2(t_list2 \*head, void (\*del)(void \*data))
+Uses del_node to destroy the whole list, if head is NULL nothing is done.
+
+<br>
+
+<br><br><br>
+
+# Extra Removal Functions ([linked_list_removal_extra2.c](linked_list_removal_extra2.c))
+## void	lst_del_if2(t_list2 \*\*head, int (\*cmp)(void \*dt), void (\*del)(void \*dt))
+Takes a double pointer to the start of a list, a function that will be used to determine which nodes to delete and a delete function to be applied to the nodes' data. This function will not do anything if:
+head is NULL, list is empty or if cmp is NULL.
+
+<br>
+
+## void	lst_del_from2(t_list2 \*\*head, t_list2 \*from, t_list2 \*to, void (\*f)(void \*dt))
+Takes a double pointer to the start of a list, the node at which the deleting will start, the node at which the deletion will stop (non inclusive) and a delete function to be applied to the nodes' data. This function will not do anything if:
+head is empty, list is empty of from is NULL.
+
+<br>
+
+## void	lst_del_node2(t_list2 \*\*head, t_list2 \*node, void (\*del)(void \*data))
+Takes a double pointer to the start of a list, the node in the list that will be deleted and the function to be applied to the node's data. This function will not do anything if:
+head or node is NULL, or if the list is already empty.
 
 <br><br><br>
 
@@ -130,29 +165,11 @@ Takes as argument a pointer to the start of the list, if list is empty nothing w
 
 <br><br><br>
 
-# List Conversions ([linked_list_creation2.c](linked_list_creation.c))
-Warning, the following functions still need to be tested.
+# List Conversions ([linked_list_creation2.c](linked_list_creation2.c))
+## t_list2	\*new_node2(void \*data, void (\*failsafe)(void \*data))
+Creates a new node and assign the new node's data to data argument, if the memory allocation for the new node fails then the failsafe is called on the data provided.
 
-## t_list2	\*lst_from_arr2(cosnt void \*arr, size_t size, size_t data_size)
-Takes as argument a void array, the array size and the size of each data in the array, if any argument is equal to 0//NULL, NULL is returned. Each node's data field will recieve a copy of their respective array element. On success the new list is returned, on failure NULL is returned.
-```c
-int arr = {1, 2, 3, 4};
-t_list	*list = lst_from_arr2(arr, 4, sizeof(int));
-lst_clear2(&list);
-```
-
-<br>
-
-## t_list2	\*arr_to_lst2(void \*arr, size_t size, size_t data_size)
-The same as lst_from_arr2, but array is freed.
-
-<br>
-
-## void	\*arr_from_lst2(const t_list2 \*head, size_t data_size)
-Takes as argument a pointer to the start of a list and the data size of the node's data field. This function will not do anything if the list is empty or data_size is 0. On success a void array is returned, each index containing a node's data value, on failure NULL is returned.
-```c
-void	*arr = arr_from_list2(list, sizeof(int));
-free(arr);
-```
+## t_list2	\*new_list2(size_t size, void \*(\*gen)(void), void (\*gen_failsafe)(void \*dt))
+Creates a list of size size, each node's data is assigned to the return of the function gen, if no gen function is provided then NULL is assingned to each node's data.
 
 <br><br><br>

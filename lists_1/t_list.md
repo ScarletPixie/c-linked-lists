@@ -115,6 +115,8 @@ head is empty, list is empty of from is NULL.
 Takes a double pointer to the start of a list, the node in the list that will be deleted and the function to be applied to the node's data. This function will not do anything if:
 head or node is NULL, or if the list is already empty.
 
+<br><br><br>
+
 # Helper Functions ([linked_list_nodes.c](linked_list_nodes.c))
 ## t_list	\*get_node(t_list \*head, size_t index)
 Takes as argument the pointer to the start of the list and returns the index-th node. If index is out of bounds, NULL is returned.
