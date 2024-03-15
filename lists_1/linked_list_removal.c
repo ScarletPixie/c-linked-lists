@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:01:59 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/15 09:56:48 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/15 10:00:08 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,4 +111,12 @@ t_list	*lst_destroy(t_list *head, void (*del)(void *data))
 		head = tmp;
 	}
 	return (NULL);
+}
+void	del_node(t_list *node, void (*del)(void *data))
+{
+	if (!node)
+		return ;
+	if (del)
+		del(node->data);
+	free(node);
 }

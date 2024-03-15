@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 10:35:25 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/15 09:57:57 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/15 10:01:36 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void		lst_prepend(t_list **head, t_list *node);
 
 // linked_list_removal.c
 void		lst_del_at(t_list **head, size_t index, void (*del)(void *data));
+void		del_node(t_list *node, void (*del)(void *data));
 t_list		*lst_destroy(t_list *head, void (*del)(void *data));
 t_list		*lst_slice(t_list **head, size_t start, size_t end);
 t_list		*lst_pop(t_list **head, size_t index);
@@ -57,9 +58,6 @@ void		*arr_from_lst(const t_list *head, size_t data_size);
 t_list		*arr_to_lst(void *arr, size_t size, size_t data_size);
 t_list		*lst_from_arr(const void *arr, size_t size, size_t data_size);
 
-// linked_list_helper.c
-void		del_node(t_list *node, void (*del)(void *data));
-
 /*****************************************************************************/
 
 /*****************************************************************************/
@@ -73,6 +71,7 @@ void		lst_prepend2(t_list2 **head, t_list2 *node);
 
 // linked_list_removal2.c
 void		lst_del_at2(t_list2 **head, size_t index, void (*del)(void *data));
+void		del_node2(t_list2 *node, void (*del)(void *data));
 t_list2		*lst_destroy2(t_list2 *head, void (*del)(void *data));
 t_list2		*lst_pop2(t_list2 **head, size_t index);
 t_list2		*lst_slice2(t_list2 **head, size_t start, size_t size);
@@ -104,9 +103,6 @@ void		lst_sort2(t_list2 *head, int (*cmp)(void *data1, void *data2));
 size_t		lst_len2(const t_list2 *head);
 t_list2		*get_node_if2(t_list2 *head, int (*func)(void *data));
 
-// linked_list_helper2.c
-void		del_node2(t_list2 *node, void (*del)(void *data));
-
 /*****************************************************************************/
 
 /*****************************************************************************/
@@ -116,12 +112,6 @@ void		del_node2(t_list2 *node, void (*del)(void *data));
 void		*lst_ft_memdup(const void *data, size_t data_size);
 void		lst_ft_memcpy(void *dest, const void *source, size_t data_size);
 void		lst_ft_swap(void **ptr1, void **ptr2);
-
-// structs.c
-void		lst_clear(t_list **head, void (*func)(void *data));
-void		lst_clear2(t_list2 **head, void (*func)(void *data));
-t_list		*new_node(void *data, void (*failsafe)(void *data));
-t_list2		*new_node2(void *data, void (*failsafe)(void *data));
 
 /*****************************************************************************/
 
