@@ -98,6 +98,23 @@ Uses del_node to destroy the whole list, if head is NULL nothing is done.
 
 <br><br><br>
 
+# Extra Removal Functions ([linked_list_removal_extra.c](linked_list_removal_extra.c))
+## void	lst_del_if(t_list \*\*head, int (\*cmp)(void \*dt), void (\*del)(void \*dt))
+Takes a double pointer to the start of a list, a function that will be used to determine which nodes to delete and a delete function to be applied to the nodes' data. This function will not do anything if:
+head is NULL, list is empty or if cmp is NULL.
+
+<br>
+
+## void	lst_del_from(t_list \*\*head, t_list \*from, t_list \*to, void (\*f)(void \*dt))
+Takes a double pointer to the start of a list, the node at which the deleting will start, the node at which the deletion will stop (non inclusive) and a delete function to be applied to the nodes' data. This function will not do anything if:
+head is empty, list is empty of from is NULL.
+
+<br>
+
+## void	lst_del_node(t_list \*\*head, t_list \*node, void (\*del)(void \*data))
+Takes a double pointer to the start of a list, the node in the list that will be deleted and the function to be applied to the node's data. This function will not do anything if:
+head or node is NULL, or if the list is already empty.
+
 # Helper Functions ([linked_list_nodes.c](linked_list_nodes.c))
 ## t_list	\*get_node(t_list \*head, size_t index)
 Takes as argument the pointer to the start of the list and returns the index-th node. If index is out of bounds, NULL is returned.
