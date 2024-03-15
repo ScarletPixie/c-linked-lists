@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 10:35:25 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/08 16:51:01 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/15 09:57:57 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ void		lst_insert(t_list **head, t_list *node, size_t index);
 void		lst_prepend(t_list **head, t_list *node);
 
 // linked_list_removal.c
-void		lst_delete(t_list **head, size_t index, void (*func)(void *data));
+void		lst_del_at(t_list **head, size_t index, void (*del)(void *data));
+t_list		*lst_destroy(t_list *head, void (*del)(void *data));
 t_list		*lst_slice(t_list **head, size_t start, size_t end);
 t_list		*lst_pop(t_list **head, size_t index);
 
@@ -71,7 +72,8 @@ void		lst_insert2(t_list2 **head, t_list2 *node, size_t index);
 void		lst_prepend2(t_list2 **head, t_list2 *node);
 
 // linked_list_removal2.c
-void		lst_delete2(t_list2 **head, size_t index, void (*func)(void *data));
+void		lst_del_at2(t_list2 **head, size_t index, void (*del)(void *data));
+t_list2		*lst_destroy2(t_list2 *head, void (*del)(void *data));
 t_list2		*lst_pop2(t_list2 **head, size_t index);
 t_list2		*lst_slice2(t_list2 **head, size_t start, size_t size);
 

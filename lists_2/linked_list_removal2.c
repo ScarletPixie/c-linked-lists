@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 10:02:50 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/15 09:51:11 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/15 09:57:35 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,12 +83,12 @@ t_list2	*lst_slice2(t_list2 **head, size_t start, size_t size)
 	return (sub_list);
 }
 
-void	lst_destroy2(t_list2 *head, void (*del)(void *data))
+t_list2	*lst_destroy2(t_list2 *head, void (*del)(void *data))
 {
 	t_list2	*tmp;
 
 	if (!head)
-		return ;
+		return (NULL);
 	tmp = head;
 	while (tmp)
 	{
@@ -96,5 +96,5 @@ void	lst_destroy2(t_list2 *head, void (*del)(void *data))
 		del_node2(head, del);
 		head = tmp;
 	}
-	return ;
+	return (NULL);
 }
