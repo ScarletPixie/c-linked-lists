@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 10:18:41 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/15 10:05:06 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/15 13:19:37 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,75 +29,32 @@ t_list2	*new_node2(void *data, void (*failsafe)(void *data))
 	return (node);
 }
 
-t_list2	*arr_to_list2(void *arr, size_t size, size_t data_size)
+t_list2	*new_list2(size_t size, void *(*gen)(void),
+			void (*gen_failsafe)(void *dt))
 {
-	void	*data;
+	size_t	index;
+	t_list2	*list;
 	t_list2	*node;
-	t_list2	*head;
 
-	if (!arr || !size || !data_size)
-		return (NULL);
-	head = NULL;
-	while (size > 0)
-	{
-		if (size > 0)
-			--size;
-		data = lst_ft_memdup(arr + (size * data_size), data_size);
-		node = new_node2(data, free);
-		if (!node)
-			return (lst_destroy2(head, free), NULL);
-		lst_insert2(&head, node, 0);
-		if (size == 0)
-			break ;
-	}
-	free(arr);
-	return (head);
-}
-
-t_list2	*list_from_arr2(const void *arr, size_t size, size_t data_size)
-{
-	void	*data;
-	t_list2	*node;
-	t_list2	*head;
-
-	if (!arr || !size || !data_size)
-		return (NULL);
-	head = NULL;
-	while (size > 0)
-	{
-		if (size > 0)
-			--size;
-		data = lst_ft_memdup(arr + (size * data_size), data_size);
-		node = new_node2(data, free);
-		if (!node)
-			return (lst_destroy2(head, free), NULL);
-		lst_insert2(&head, node, 0);
-		if (size == 0)
-			break ;
-	}
-	return (head);
-}
-
-void	*lst_from_arr2(const t_list2 *head, size_t data_size)
-{
-	void			*array;
-	size_t			size;
-	size_t			index;
-	const t_list2	*tmp;
-
-	size = lst_len2(head);
-	if (!head || !size || !data_size)
-		return (NULL);
-	array = malloc(data_size * size);
-	if (!array)
-		return (NULL);
-	tmp = head;
+	list = NULL;
 	index = 0;
-	while (tmp)
+	while (index < size)
 	{
-		lst_ft_memcpy(array + (index * data_size), tmp->data, data_size);
-		tmp = tmp->next;
+		if (gen)
+		{
+			node = new_node2(gen(), gen_failsafe);
+			if (!node)
+				return (lst_destroy2(list, gen_failsafe));
+		}
+		else
+		{
+			node = new_node2(NULL, NULL);
+			if (!node)
+				return (lst_destroy2(list, NULL));
+		}
+		lst_prepend2(&list, node);
 		index++;
 	}
-	return (array);
+	lst_rev2(list);
+	return (list);
 }
