@@ -6,3 +6,4 @@ debug
 main.c
 main2.c
 test.c
+*.o
