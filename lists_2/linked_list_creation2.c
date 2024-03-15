@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 10:18:41 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/15 13:19:37 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/15 14:12:26 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,15 @@ t_list2	*new_list2(size_t size, void *(*gen)(void),
 	}
 	lst_rev2(list);
 	return (list);
+}
+
+void	lst_foreach2(t_list2 *head, void (*func)(t_list2 *node))
+{
+	if (!head || !func)
+		return ;
+	while (head)
+	{
+		func(head);
+		head = head->next;
+	}
 }

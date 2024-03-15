@@ -174,4 +174,7 @@ Creates a new node and assign the new node's data to data argument, if the memor
 ## t_list	\*new_list(size_t size, void \*(\*gen)(void), void (\*gen_failsafe)(void \*dt))
 Creates a list of size size, each node's data is assigned to the return of the function gen, if no gen function is provided then NULL is assingned to each node's data.
 
+## void	lst_foreach(t_list \*head, void (\*func)(t_list \*node))
+Applies function func to each node in the list. Won't do anything if list or func is NULL.
+
 <br><br><br>

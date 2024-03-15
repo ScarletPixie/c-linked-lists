@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 10:35:25 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/15 14:05:11 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/15 14:12:47 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ t_list		*new_node(void *data, void (*failsafe)(void *data));
 t_list		*new_list(size_t size, void *(*gen)(void),
 				void (*gen_failsafe)(void *dt));
 
+void		lst_foreach(t_list *head, void (*func)(t_list *node));
+
 /*****************************************************************************/
 
 /*****************************************************************************/
@@ -101,6 +103,8 @@ t_list2		*new_node2(void *data, void (*failsafe)(void *data));
 
 t_list2		*new_list2(size_t size, void *(*gen)(void),
 				void (*gen_failsafe)(void *dt));
+
+void		lst_foreach2(t_list2 *head, void (*func)(t_list2 *node));
 
 // linked_list_misc2.c
 void		lst_rev2(t_list2 *head);
