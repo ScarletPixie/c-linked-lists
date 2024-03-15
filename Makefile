@@ -1,6 +1,8 @@
-NAME	=	liblist.a
-CFLAGS	=	-Wall -Wextra -Werror
-INCLUDE	=	./include
+NAME		=	liblist.a
+DEBUG_NAME	=	liblist_debug.a
+CFLAGS		=	-Wall -Wextra -Werror
+DEBUG_FLAGS	=	-Wall -Wextra -ggdb3
+INCLUDE		=	./include
 
 #------------------------------------------------------------------------------#
 # singly linked list
@@ -29,32 +31,36 @@ COMMON_SRCS	=	utils.c
 COMMON_OBJS	=	${COMMON_SRCS:.c=.o}
 #------------------------------------------------------------------------------#
 
-
-OBJS	= $(L1_OBJS) $(L2_OBJS) $(COMMON_OBJS)
-
-
+OBJS		=	$(L1_OBJS) $(L2_OBJS) $(COMMON_OBJS)
+DEBUG_OBJS	=	${OBJS:.o=_debug.o}
 
 all:		$(NAME)
+
+debug:		$(DEBUG_NAME)
 
 $(NAME):	$(OBJS)
 	ar -rc $(NAME) $(OBJS)
 	ranlib $(NAME)
 
 %.o:		%.c
-	cc -I$(INCLUDE) $(CFLAGS) -c $< -o $@
+	$(CC) -I$(INCLUDE) $(CFLAGS) -c $< -o $@
 
+%_debug.o:	%.c
+	$(CC) -I$(INCLUDE) $(DEBUG_FLAGS) -c $< -o $@
+
+$(DEBUG_NAME): $(DEBUG_OBJS)
+	ar -rc $(DEBUG_NAME) $(DEBUG_OBJS)
+	ranlib $(DEBUG_NAME)
+	
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(DEBUG_OBJS)
 
 fclean: clean
-	rm -f $(NAME) debug
+	rm -f $(NAME) $(DEBUG_NAME)
 
 mclean: all clean
 
 re: fclean all
 
-#debug:	$(NAME)
-#	cc -g -L. -o debug main2.c $(NAME)
-#	$(MAKE) clean
 
 .PHONY: all clean fclean mclean re
