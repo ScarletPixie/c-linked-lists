@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 10:35:25 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/15 14:12:47 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/15 15:49:23 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ t_list		*lst_slice(t_list **head, size_t start, size_t end);
 t_list		*lst_pop(t_list **head, size_t index);
 
 // linked_list_removal_extra.c
+void		lst_del_node(t_list **head, t_list *node, void (*del)(void *data));
+
 void		lst_del_if(t_list **head,
 				int (*cmp)(void *dt), void (*del)(void *dt));
 
 void		lst_del_from(t_list **head, t_list *from,
 				t_list *to, void (*f)(void *dt));
-
-void		lst_del_node(t_list **head, t_list *node, void (*del)(void *data));
 
 // linked_list_misc.c
 void		lst_sort(t_list *head, int (*cmp)(void *data1, void *data2));
@@ -56,12 +56,13 @@ t_list		*last_node(t_list *head);
 t_list		*cut_node(t_list *node);
 
 // linked_list_creation.c
+void		lst_foreach(t_list *head, void (*func)(t_list *node));
+t_list		*lst_map(t_list *head, t_list *(*func)(void *dt));
+
 t_list		*new_node(void *data, void (*failsafe)(void *data));
 
 t_list		*new_list(size_t size, void *(*gen)(void),
 				void (*gen_failsafe)(void *dt));
-
-void		lst_foreach(t_list *head, void (*func)(t_list *node));
 
 /*****************************************************************************/
 
@@ -83,13 +84,13 @@ t_list2		*lst_pop2(t_list2 **head, size_t index);
 t_list2		*lst_slice2(t_list2 **head, size_t start, size_t size);
 
 // linked_list_removal_extra2.c
+void		lst_del_node2(t_list2 **head, t_list2 *node, void (*del)(void *dt));
+
 void		lst_del_if2(t_list2 **head,
 				int (*cmp)(void *d), void (*del)(void *d));
 
 void		lst_del_from2(t_list2 **head, t_list2 *from,
 				t_list2 *to, void (*f)(void *dt));
-
-void		lst_del_node2(t_list2 **head, t_list2 *node, void (*del)(void *dt));
 
 // linked_list_nodes2.c
 void		link_node2(t_list2 *node1, t_list2 *node2);
@@ -99,12 +100,13 @@ t_list2		*get_node2(t_list2 *head, size_t index);
 t_list2		*last_node2(t_list2 *head);
 
 // linked_list_creation2.c
+void		lst_foreach2(t_list2 *head, void (*func)(t_list2 *node));
+t_list2		*lst_map2(t_list2 *head, t_list2 *(*func)(void *dt));
+
 t_list2		*new_node2(void *data, void (*failsafe)(void *data));
 
 t_list2		*new_list2(size_t size, void *(*gen)(void),
 				void (*gen_failsafe)(void *dt));
-
-void		lst_foreach2(t_list2 *head, void (*func)(t_list2 *node));
 
 // linked_list_misc2.c
 void		lst_rev2(t_list2 *head);

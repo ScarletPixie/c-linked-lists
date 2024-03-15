@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 10:04:05 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/15 14:14:48 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/15 15:47:54 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,26 @@ t_list	*new_list(size_t size, void *(*gen)(void),
 		}
 		lst_prepend(&list, node);
 		index++;
+	}
+	lst_rev(list);
+	return (list);
+}
+
+t_list	*lst_map(t_list *head, t_list *(*func)(void *dt))
+{
+	t_list	*list;
+	t_list	*node;
+
+	if (!head || !func)
+		return (NULL);
+	list = NULL;
+	while (head)
+	{
+		node = func(head->data);
+		if (!node)
+			return (list);
+		lst_insert(&list, node, 0);
+		head = head->next;
 	}
 	lst_rev(list);
 	return (list);
