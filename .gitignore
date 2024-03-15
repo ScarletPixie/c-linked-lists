@@ -1,9 +1,10 @@
 test
 liblist.a
+liblist_debug.a
 a.out
 debug
 .vscode
 main.c
 main2.c
-test.c
+test*.c
 *.o
