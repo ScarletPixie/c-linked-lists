@@ -58,11 +58,14 @@ $(DEBUG_NAME): $(DEBUG_OBJS)
 	$(CC) -I$(INCLUDE) $(DEBUG_FLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS) $(DEBUG_OBJS)
+	rm -f $(OBJS)
 
-fclean: clean
+debug_clean:
+	rm -f $(DEBUG_OBJS)
+
+fclean: clean debug_clean
 	rm -f $(NAME) $(DEBUG_NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean mclean re
+.PHONY: all clean debug_clean fclean mclean re
