@@ -63,6 +63,34 @@ void	lst_del_from2(t_list2 **head, t_list2 *from,
 	link_node2(tmp, safe);
 }
 
+void	lst_divide_at2(t_list2 **head, t_list2 **list_ptr, size_t index)
+{
+	size_t	i;
+	t_list2	*tmp;
+
+	if (!head || !*head || !list_ptr)
+		return ;
+	i = 0;
+	tmp = *head;
+	if (index == 0)
+	{
+		*list_ptr = *head;
+		*head = NULL;
+		return ;
+	}
+	while (i < index)
+	{
+		tmp = tmp->next;
+		if (!tmp)
+			return ;
+		i++;
+	}
+	*list_ptr = *head;
+	*head = tmp->next;
+	(*head)->prev = NULL;
+	tmp->next = NULL;
+}
+
 void	lst_del_node2(t_list2 **head, t_list2 *node, void (*del)(void *dt))
 {
 	t_list2	*tmp;
