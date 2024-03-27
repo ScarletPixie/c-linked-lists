@@ -41,7 +41,7 @@ debug:	$(DEBUG_NAME)
 
 mclean:	all clean
 
-dclean:	debug clean
+dclean:	debug debug_clean
 
 $(NAME):	$(OBJS)
 	ar -rc $(NAME) $(OBJS)
