@@ -42,6 +42,8 @@ void		lst_del_if(t_list **head,
 void		lst_del_from(t_list **head, t_list *from,
 				t_list *to, void (*f)(void *dt));
 
+void	    lst_divide_at(t_list **head, t_list **list_ptr, size_t index);
+
 // linked_list_misc.c
 void		lst_sort(t_list *head, int (*cmp)(void *data1, void *data2));
 void		lst_rev(t_list *head);

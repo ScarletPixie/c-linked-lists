@@ -85,6 +85,33 @@ void	lst_del_node(t_list **head, t_list *node, void (*del)(void *data))
 	del_node(tmp, del);
 }
 
+void	lst_divide_at(t_list **head, t_list **list_ptr, size_t index)
+{
+	size_t	i;
+	t_list	*tmp;
+
+	i = 0;
+	if (!head || !*head || !list_ptr)
+		return ;
+	tmp = *head;
+	if (index == 0)
+	{
+		*list_ptr = *head;
+		*head = NULL;
+		return ;
+	}
+	while (i < index)
+	{
+		tmp = tmp->next;
+		if (!tmp)
+			return ;
+		i++;
+	}
+	*list_ptr = *head;
+	*head = tmp->next;
+	tmp->next = NULL;
+}
+
 static void	link_helper(t_list **head, t_list *curr, t_list **prev)
 {
 	if (curr == *head)
