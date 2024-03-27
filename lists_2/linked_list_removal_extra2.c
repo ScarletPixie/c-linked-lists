@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 16:42:38 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/15 09:55:00 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/03/27 10:56:09 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	lst_divide_at2(t_list2 **head, t_list2 **list_ptr, size_t index)
 		*head = NULL;
 		return ;
 	}
-	while (i < index)
+	while ((i + 1) < index)
 	{
 		tmp = tmp->next;
 		if (!tmp)
