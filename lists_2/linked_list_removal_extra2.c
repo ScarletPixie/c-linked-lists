@@ -98,7 +98,7 @@ void	lst_del_node2(t_list2 **head, t_list2 *node, void (*del)(void *dt))
 	if (!head || !*head || !node)
 		return ;
 	tmp = *head;
-	while (tmp && tmp != node && tmp->next != node)
+	while (tmp && tmp != node)
 		tmp = tmp->next;
 	if (!tmp)
 		return ;
