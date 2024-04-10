@@ -34,7 +34,7 @@ COMMON_OBJS	:=	${COMMON_SRCS:.c=.o}
 
 OBJS_DIR		:=	src_objs/
 SRC_OBJS		:=	$(L1_OBJS) $(L2_OBJS) $(COMMON_OBJS)
-SRC_DEBUG_OBJS	:=	${OBJS:.o=_debug.o}
+SRC_DEBUG_OBJS	:=	${SRC_OBJS:.o=_debug.o}
 
 OBJS		:=	${addprefix $(OBJS_DIR), $(SRC_OBJS)}
 DEBUG_OBJS	:=	${addprefix $(OBJS_DIR), $(SRC_DEBUG_OBJS)}
@@ -45,8 +45,6 @@ all:	$(NAME)
 debug:	$(DEBUG_NAME)
 
 mclean:	all clean
-
-dclean:	debug debug_clean
 
 $(NAME):	$(OBJS)
 	ar -rc $(NAME) $(OBJS)
@@ -72,4 +70,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean debug_clean fclean mclean re
+.PHONY: all clean fclean mclean re
