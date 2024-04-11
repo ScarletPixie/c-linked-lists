@@ -1,3 +1,4 @@
+CC			?=	cc
 NAME		:=	liblist.a
 DEBUG_NAME	:=	liblist_debug.a
 CFLAGS		:=	-Wall -Wextra -Werror
