@@ -1,8 +1,8 @@
 CC			?=	cc
 NAME		:=	liblist.a
 DEBUG_NAME	:=	liblist_debug.a
-CFLAGS		:=	-Wall -Wextra -Werror
-DEBUG_FLAGS	:=	-Wall -Wextra -ggdb3
+CFLAGS		:=	-Wall -Wextra -Werror -O2
+DEBUG_FLAGS	:=	-Wall -Wextra -ggdb3 -O0
 INCLUDE		:=	./include
 
 #------------------------------------------------------------------------------#
@@ -46,6 +46,8 @@ all:	$(NAME)
 debug:	$(DEBUG_NAME)
 
 mclean:	all clean
+
+mcdclean:	debug clean
 
 $(NAME):	$(OBJS)
 	ar -rc $(NAME) $(OBJS)
