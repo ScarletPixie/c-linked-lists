@@ -6,7 +6,7 @@
 /*   By: paulhenr <paulhenr@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 10:04:05 by paulhenr          #+#    #+#             */
-/*   Updated: 2024/03/15 15:47:54 by paulhenr         ###   ########.fr       */
+/*   Updated: 2024/06/27 22:15:37 by paulhenr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 t_list	*new_node(void *data, void (*failsafe)(void *data))
 {
-	t_list	*node;
+	t_list *const	node = malloc(sizeof(t_list));
 
-	node = malloc(sizeof(t_list));
 	if (!node)
 	{
+		perror(__func__);
 		if (failsafe)
 			failsafe(data);
 		return (NULL);
